@@ -50,7 +50,9 @@ Go to [Dataform](https://console.cloud.google.com/bigquery/dataform) (part of th
     Region: `us-central1` \
     Service Account: `Default Dataform service account`
 
-3. And click on <walkthrough-spotlight-pointer locator="text('create')">CREATE</walkthrough-spotlight-pointer>
+3. Set actAs permission checks to `Don't enforce`
+
+4. And click on <walkthrough-spotlight-pointer locator="text('create')">CREATE</walkthrough-spotlight-pointer>
 
 {% set DATAFORM_SA = "service-{}@gcp-sa-dataform.iam.gserviceaccount.com".format(PROJECT_NUMBER) %}
 
