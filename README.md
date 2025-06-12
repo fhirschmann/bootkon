@@ -9,6 +9,15 @@ To start your Data & AI Bootkon journey, please open the [handbook](https://fhir
 
 [![handbook](https://img.shields.io/badge/Handbook-37a779?style=for-the-badge)](https://fhirschmann.github.io/bootkon)
 
+## Note
+
+This is not an officially supported Google product. This project is not
+eligible for the [Google Open Source Software Vulnerability Rewards
+Program](https://bughunters.google.com/open-source-security).
+
+This project is intended for demonstration purposes only. It is not
+intended for use in a production environment.
+
 ## Authors
 
 This version is based on a [previous version](https://github.com/dace-de/google-data-ai-bootkon-docs) by Wissem Khlifi. 
