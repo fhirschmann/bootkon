@@ -56,7 +56,9 @@ Go to [Dataform](https://console.cloud.google.com/bigquery/dataform) (part of th
 
 {% set DATAFORM_SA = "service-{}@gcp-sa-dataform.iam.gserviceaccount.com".format(PROJECT_NUMBER) %}
 
-The dataform service account you see on your screen should be `{{ DATAFORM_SA }}`. We will need it later.
+    The dataform service account you see on your screen should be `{{ DATAFORM_SA }}`. We will need it later.
+
+5. Select <walkthrough-spotlight-pointer locator="semantic({button 'Grant all'})">Grant all</walkthrough-spotlight-pointer> required roles for the service-account to execute queries in Dataform
 
 
 Next, click <walkthrough-spotlight-pointer locator="text('go to repositories')">GO TO REPOSITORIES</walkthrough-spotlight-pointer>, and then choose the <walkthrough-spotlight-pointer locator="text('hackathon-repository')">hackathon-repository</walkthrough-spotlight-pointer> you just created.
@@ -164,6 +166,8 @@ Notice the usage of `$ref` in line 11, of `definitions/mview_ulb_fraud_detection
 ### **Execute Dataform workflows**
 
 Run the dataset creation by **Tag**. Tag allow you to just execute parts of the workflows and not the entire workflow. 
+
+Note: If you have previously granted all required roles for the service account `{{ DATAFORM_SA }}` then you can skip step 1-5
 
 1. Click on <walkthrough-spotlight-pointer locator="semantic({button 'Start execution'})">Start execution</walkthrough-spotlight-pointer> > <walkthrough-spotlight-pointer locator="text('tags')">Tags</walkthrough-spotlight-pointer> \> <walkthrough-spotlight-pointer locator="text('dataset_ulb_fraud_detection_llm')">dataset_ulb_fraud_detection_llm</walkthrough-spotlight-pointer><walkthrough-spotlight-pointer locator="semantic({button 'Start execution'})"> Start execution</walkthrough-spotlight-pointer>
 
