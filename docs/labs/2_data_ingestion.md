@@ -75,7 +75,7 @@ bq --location=us mk -d ml_datasets
 Next, we connect the data in Cloud Storage to BigQuery:
 1. Click <walkthrough-spotlight-pointer locator="spotlight(bigquery-add-data)">+ Add data</walkthrough-spotlight-pointer>
 2. Click <walkthrough-spotlight-pointer locator="semantic({button 'Google Cloud Storage'})">Google Cloud Storage</walkthrough-spotlight-pointer>
-3. Select `GCS: (Manual)`
+3. Select `Load to BigQuery`
 4. Enter the following details:
 - Create table from: `Google Cloud Storage`
 - Select file: `{{ PROJECT_ID }}-bucket/data/parquet/ulb_fraud_detection/*`
