@@ -173,7 +173,7 @@ Note: If you have previously granted all required roles for the service account 
 
 2. Click on <walkthrough-spotlight-pointer locator="semantic({link 'Details'})">DETAILS</walkthrough-spotlight-pointer>
 
-    Notice the Access Denied error on BigQuery for the dataform service account `{{ DATAFORM_SA }}`
+    Notice the Access Denied error on BigQuery for the dataform service account `{{ DATAFORM_SA }}`. If did not receive an error, you can skip step 3-6.
 
 3. Go to [IAM & Admin](https://console.cloud.google.com/iam-admin)
 
