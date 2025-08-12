@@ -64,6 +64,7 @@ export BK_GITHUB_REPOSITORY=$(echo $BK_REPO | cut -d/ -f2) # second part of fhir
 export BK_REPO_URL="https://github.com/${BK_REPO}.git"
 export BK_TUTORIAL="${BK_TUTORIAL:-docs/TUTORIAL.md}" # defaults to .TUTORIAL.md; can be overwritten
 export BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
+export BK_STREAM="${BK_STREAM:-data}" # defaults to data; can be overwritten
 export BK_DIR=~/${BK_GITHUB_REPOSITORY}
 export BK_INIT_SCRIPT=~/${BK_GITHUB_REPOSITORY}/bk
 export BK_INITIALIZED=1
@@ -135,6 +136,19 @@ if grep -q '^export BK_REPO=' ~/.bashrc; then
     echo -e "Bootkon is automatically loaded in Cloud Shell. To deactivate, type ${RED}bk-deactivate${NC}."
 else
     echo "Adding BK_REPO to .bashrc"
+    echo "$line" >> ~/.bashrc
+fi
+
+## Set or update $BK_STREAM in ~/.bashrc
+line="export BK_STREAM=${BK_STREAM}"
+if grep -q '^export BK_STREAM=' ~/.bashrc; then
+    # If the line exists but differs, update it
+    if ! grep -Fxq "$line" ~/.bashrc; then
+        sed -i "s|^export BK_STREAM=.*|$line|" ~/.bashrc
+        echo "Updated the existing BK_STREAM line in ~/.bashrc."
+    fi
+else
+    echo "Adding BK_STREAM=$BK_STREAM to .bashrc"
     echo "$line" >> ~/.bashrc
 fi
 
