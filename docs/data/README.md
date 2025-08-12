@@ -98,7 +98,8 @@ It is based on Visual Studio Code and hence looks like a normal IDE. However, on
 
 ## Working with labs (important)
 
-Please note the points in this section before you get started with the labs in the next section.
+> [!CAUTION]
+> Please note the points in this section before you get started with the labs in the next section.
 
 While going through the code labs, you will encounter two different terminals on your screen. Please only use the terminal from the IDE (white background) and do not use the non-IDE terminal (black background). In fact, just close the terminal with black background using the `X` button.
 
@@ -131,7 +132,7 @@ Click into the terminal that has opened at the bottom of your screen.
 And copy & paste the following command and press return:
 
 ```bash
-BK_STREAM=data BK_REPO=https://github.com/fhirschmann/bootkon; . <(wget -qO- https://raw.githubusercontent.com/{{ BK_REPO }}/main/.scripts/bk)
+BK_STREAM=data BK_REPO=fhirschmann/bootkon; . <(wget -qO- https://raw.githubusercontent.com/${BK_REPO}/main/.scripts/bk)
 ```
 
 Now, please go back to Cloud Shell and continue with the tutorial that has been opened on the right hand side of your screen!
