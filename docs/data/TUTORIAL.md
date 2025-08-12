@@ -60,15 +60,15 @@ Now, your
 
 If neither is `None`, press the `START` button below to get started!
 
-{% include 'labs/1_environment_setup.md' %}
+{% include 'data/labs/1_environment_setup.md' %}
 
-{% include 'labs/2_data_ingestion.md' %}
+{% include 'data/labs/2_data_ingestion.md' %}
 
-{% include 'labs/3_dataform.md' %}
+{% include 'data/labs/3_dataform.md' %}
 
-{% include 'labs/4_ml.md' %}
+{% include 'data/labs/4_ml.md' %}
 
-{% include 'labs/5_dataplex.md' %}
+{% include 'data/labs/5_dataplex.md' %}
 
 ## The end
 

@@ -20,7 +20,6 @@
 #
 # Environment variables:
 #   BK_REPO: GitHub repository (<username/repo>). Defaults to fhirschmann/bootkon.
-#   BK_TUTORIAL: Path to tutorial markdown (relative to repo root). Defaults to .TUTORIAL.md.
 #   BK_NO_WORKSPACE_OPEN: Prevents workspace auto-opening.
 
 RED='\033[0;31m'
@@ -62,7 +61,6 @@ fi
 export BK_GITHUB_USERNAME=$(echo $BK_REPO | cut -d/ -f1) # first part of fhirschmann/bootkon
 export BK_GITHUB_REPOSITORY=$(echo $BK_REPO | cut -d/ -f2) # second part of fhirschmann/bootkon
 export BK_REPO_URL="https://github.com/${BK_REPO}.git"
-export BK_TUTORIAL="${BK_TUTORIAL:-docs/TUTORIAL.md}" # defaults to .TUTORIAL.md; can be overwritten
 export BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
 export BK_STREAM="${BK_STREAM:-data}" # defaults to data; can be overwritten
 export BK_DIR=~/${BK_GITHUB_REPOSITORY}
