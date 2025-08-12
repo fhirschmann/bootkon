@@ -1,4 +1,4 @@
-# Introduction
+# Data & AI Bootkon
 
 Welcome to Data & AI Bootkon!
 
@@ -17,7 +17,7 @@ This event is comprised of the following code labs:
 
 You can navigate this handbook using the `<` and `>` buttons on the right and left hand side, respectively. To get started, please press the `>` button on the right hand side now.
 
-# Use Case 
+## Use Case 
 
 Your role: As a senior data analytics/AI engineer at an imaginary company called FraudFix Technologies, you will tackle the challenges of making financial transactions safer using machine learning. Your work will involve analyzing vast amounts of transaction data to detect and prevent fraud, as well as assessing customer sentiment regarding the quality of transaction services. You will leverage a unique dataset, which includes auto-generated data by Google Gemini and  public European credit card transactions that have been PCA transformed and anonymized. This dataset will be used to train your models, reflecting real-world applications of GCP Data & AI in enhancing financial safety.
 
@@ -57,17 +57,10 @@ Feature ‘Time' contains the seconds elapsed between each transaction and the f
 
 During your machine learning experimentation using notebooks, one of the notebook cells will add your Google cloud account email address into the prediction dataset for traceability. This email address is treated as PII data and should not be shared externally outside of Fraudfix. The original dataset has been collected and analyzed during a research collaboration of [Worldline and the Machine Learning Group of ULB](http://mlg.ulb.ac.be) (Université Libre de Bruxelles) on big data mining and fraud detection. If you need more details on current and past projects on related topics are available here  and here.
 
-# Logging into Google Cloud
+## Logging into Google Cloud
 
-<div class="mdbook-alerts mdbook-alerts-caution">
-<p class="mdbook-alerts-title">
-  <span class="mdbook-alerts-icon"></span>
-  caution
-</p>
-<p>
-Please follow the below steps exactly as written. Deviating from them has unintended consequences.
-</p>
-</div>
+> [!CAUTION]
+> Please follow the below steps exactly as written. Deviating from them has unintended consequences.
 
 Let us set your your Google Cloud Console. Please:
 
@@ -76,18 +69,18 @@ Let us set your your Google Cloud Console. Please:
 3. Open <a href="https://console.cloud.google.com" target="_blank">Google Cloud Console</a> and log in with the provided credentials.
 4. Accept the Terms of Services.   
 
-    ![](../img/termsofservice.png)
+    ![](img/termsofservice.png)
 
 5. Choose your **project id**. Click on select a project and select the project ID (example below)  
-    ![](../img/selectproject.png)
+    ![](img/selectproject.png)
 
 
-    ![](../img/selectproject2.png)
+    ![](img/selectproject2.png)
 
 
-    ![](../img/selectproject3.png)
+    ![](img/selectproject3.png)
 
 6. Go to [language settings](https://console.cloud.google.com/user-preferences/languages) and change your language to `English (US)`. This will help our tutorial engine recognize items on your screen and make our table captain be able to help you.
 
-    ![](../img/select_language.png)
+    ![](img/select_language.png)
  
