@@ -169,11 +169,11 @@ grep -qxF "$line" ~/.bashrc || echo "$line" >> ~/.bashrc
 unset line
 
 echo
-echo -e "         __                 --------------------------------------------------------"
-echo -e " _(\    |${RED}@@${NC}|                |                                                      |"
-echo -e "(__/\__ \--/ __             |          \e[34mW\e[31me\e[33ml\e[32mc\e[34mo\e[31mm\e[33me \e[32mt\e[34mo \e[31mt\e[33mh\e[32me \e[34mD\e[31ma\e[33mt\e[32ma \e[34m& \e[31mA\e[33mI \e[32mB\e[34mo\e[31mo\e[33mt\e[32mk\e[34mo\e[31mn\e[0m!           |"
-echo -e "   \___|----|  |   __       |                                                      |"
-echo -e "       \ }{ /\ )_ / _\      --------------------------------------------------------"
+echo -e "         __                 ---------------------------------------"
+echo -e " _(\    |${RED}@@${NC}|                |                                     |"
+echo -e "(__/\__ \--/ __             |          \e[34mW\e[31me\e[33ml\e[32mc\e[34mo\e[31mm\e[33me \e[32mt\e[34mo \e[32mB\e[34mo\e[31mo\e[33mt\e[32mk\e[34mo\e[31mn\e[0m!        |"
+echo -e "   \___|----|  |   __       |                                     |"
+echo -e "       \ }{ /\ )_ / _\      ---------------------------------------"
 echo -e "       /\__/\ \__O (__"
 echo -e "      (--/\--)    \__/      To start Data & AI Bootkon, type ${GREEN}\e[1mbk-start\e[0m${NC}."
 echo -e "      _)(  )(_              This will open the tutorial and IDE workspace."

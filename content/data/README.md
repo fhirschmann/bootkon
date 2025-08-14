@@ -69,7 +69,7 @@ Let us set your your Google Cloud Console. Please:
 3. Open <a href="https://console.cloud.google.com" target="_blank">Google Cloud Console</a> and log in with the provided credentials.
 4. Accept the Terms of Services.   
 
-    ![](img/termsofservice.png)
+    ![](../common/img/termsofservice.png)
 
 5. Choose your **project id**. Click on select a project and select the project ID (example below)  
     ![](img/selectproject.png)
