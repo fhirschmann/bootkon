@@ -72,17 +72,17 @@ Let us set your your Google Cloud Console. Please:
     ![](../common/img/termsofservice.png)
 
 5. Choose your **project id**. Click on select a project and select the project ID (example below)  
-    ![](img/selectproject.png)
+    ![](../common/img/selectproject.png)
 
 
-    ![](img/selectproject2.png)
+    ![](../common/img/selectproject2.png)
 
 
-    ![](img/selectproject3.png)
+    ![](../common/img/selectproject3.png)
 
 6. Go to [language settings](https://console.cloud.google.com/user-preferences/languages) and change your language to `English (US)`. This will help our tutorial engine recognize items on your screen and make our table captain be able to help you.
 
-    ![](img/select_language.png)
+    ![](../common/img/select_language.png)
  
 ## Executing code labs
 
@@ -92,7 +92,7 @@ Cloud Shell is a fully interactive, browser-based environment for learning, expe
 
 Below you can find a screenshot of Cloud Shell.
 
-![](img/cloud_shell_window.png)
+![](../common/img/cloud_shell_window.png)
 
 It is based on Visual Studio Code and hence looks like a normal IDE. However, on the right hand side you see the tutorial you will be working through. When you encouter code chunks in the tutorial, there are two icons on the right hand side. One to copy the code chunk to your clipboard and the other one to insert it directly into the terminal of Cloud Shell.
 
@@ -103,15 +103,15 @@ It is based on Visual Studio Code and hence looks like a normal IDE. However, on
 
 While going through the code labs, you will encounter two different terminals on your screen. Please only use the terminal from the IDE (white background) and do not use the non-IDE terminal (black background). In fact, just close the terminal with black background using the `X` button.
 
-![](img/code_terminals.png)
+![](../common/img/code_terminals.png)
 
 You will also find two buttons on your screen that might seem tempting. <font color="red">Please do not click the *Open Terminal* or *Open in new window* buttons</font> as they will destroy the integrated experience of Cloud Shell.
 
-![](img/code_newwindow.png)
+![](../common/img/code_newwindow.png)
 
 Please double check that the URL in your browser reads `console.cloud.google.com` and <font color="red">not `shell.cloud.google.com`</font>.
 
-![](img/wrong_url.png)
+![](../common/img/wrong_url.png)
 
 Should you accidentally close the tutorial or the IDE, just type the following command into the terminal:
 
@@ -123,11 +123,11 @@ bk-start
 
 In your Google Cloud Console window, activate Cloud Shell.
 
-![](img/activate_cloud_shell.png)
+![](../common/img/activate_cloud_shell.png)
 
 Click into the terminal that has opened at the bottom of your screen.
 
-![](img/cloud_shell_terminal.png)
+![](../common/img/cloud_shell_terminal.png)
 
 And copy & paste the following command and press return:
 
