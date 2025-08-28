@@ -120,9 +120,9 @@ Next, let's create several workflow files.
 
 4. Copy the contents to each of those files:
 
-    <walkthrough-editor-open-file filePath="src/dataform/definitions/models/create_dataset.sqlx">`create_dataset`</walkthrough-editor-open-file>
+    <walkthrough-editor-open-file filePath="content/data/src/dataform/definitions/models/create_dataset.sqlx">`create_dataset`</walkthrough-editor-open-file>
 
-    <walkthrough-editor-open-file filePath="src/dataform/definitions/models/llm_model_connection.sqlx">`llm_model_connection`</walkthrough-editor-open-file>
+    <walkthrough-editor-open-file filePath="content/data/src/dataform/definitions/models/llm_model_connection.sqlx">`llm_model_connection`</walkthrough-editor-open-file>
 
 5. Click on <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node *definitions more'})">*definitions</walkthrough-spotlight-pointer> and create 3 new files: 
 
@@ -142,11 +142,11 @@ Next, let's create several workflow files.
 
 6. Copy the contents to each of those files:
 
-    <walkthrough-editor-open-file filePath="src/dataform/definitions/mview_ulb_fraud_detection.sqlx">`mview_ulb_fraud_detection`</walkthrough-editor-open-file>
+    <walkthrough-editor-open-file filePath="content/data/src/dataform/definitions/mview_ulb_fraud_detection.sqlx">`mview_ulb_fraud_detection`</walkthrough-editor-open-file>
 
-    <walkthrough-editor-open-file filePath="src/dataform/definitions/sentiment_inference.sqlx">`sentiment_inference`</walkthrough-editor-open-file>
+    <walkthrough-editor-open-file filePath="content/data/src/dataform/definitions/sentiment_inference.sqlx">`sentiment_inference`</walkthrough-editor-open-file>
 
-    <walkthrough-editor-open-file filePath="src/dataform/definitions/ulb_fraud_detection.sqlx">`ulb_fraud_detection`</walkthrough-editor-open-file>
+    <walkthrough-editor-open-file filePath="content/data/src/dataform/definitions/ulb_fraud_detection.sqlx">`ulb_fraud_detection`</walkthrough-editor-open-file>
 
 
 7. Set the `database` value to your project ID ``{{ PROJECT_ID }}`` value in `ulb_fraud_detection.sqlx` file:

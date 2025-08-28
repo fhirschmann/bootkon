@@ -38,7 +38,7 @@ First, we need to enable some Google Cloud Platform (GCP) services. Enabling GCP
 
 Execute the following script:
 ```bash
-bk-bootstrap
+content/data/bk-bootstrap
 ```
 
 But what did it do? Let's ask Gemini while it is running.
