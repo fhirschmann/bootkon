@@ -1,19 +1,10 @@
 # Development Workflow
-{% if MDBOOK_VIEW %}
-First, start bootkon as if you were a participant (see [Labs](../labs/main.md)). Next, open this file in Cloud Shell:
 
-```
-bk-tutorial docs/book/contributing.md
-```
+You want to contribute to bootkon or create your own version? This tutorial is for you.
 
-Continue the next sections in the Cloud Shell tutorial.
-
-{% else %}
 ## Continue in Cloud Shell
 
 Hi, press `START`.
-
-{% endif %}
 
 ## Authenticate to GitHub
 
@@ -84,17 +75,3 @@ this tutorial:
 ```bash
 bk-tutorial docs/book/contributing.md
 ```
-
-## Working with mdbook
-
-You can run mdbook and compile the book in Cloud Shell directly. First, install dependencies:
-```bash
-pip install jinja2 nbformat nbconvert
-```
-
-Next, run mdbook:
-```bash
-bk-mdbook
-```
-
-You can now read the book using Cloud Shell's web preview by pressing the ![](https://cloud.google.com/static/shell/docs/images/web_preview.svg) button in Cloud Shell. Select **Preview on port 8080**. As soon as you change any of the markdown source files, mdbook will automatically reload it.
