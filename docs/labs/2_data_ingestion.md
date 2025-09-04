@@ -103,9 +103,8 @@ Let's have a look at the data set:
 2. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node {{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
 3. Click <walkthrough-spotlight-pointer locator="css(span[id$=ProjectTreeDatasource-{{ PROJECT_ID }}-bucket-dataset])">Datasets</walkthrough-spotlight-pointer>
 4. Click <walkthrough-spotlight-pointer locator="semantic({button 'ml_datasets'})">ml_datasets</walkthrough-spotlight-pointer>
-5. Click <walkthrough-spotlight-pointer locator="semantic({tab 'Tables'})">Tables</walkthrough-spotlight-pointer>
-6. Click <walkthrough-spotlight-pointer locator="semantic({gridcell 'ulb_fraud_detection_biglake'})">ulb_fraud_detection_biglake</walkthrough-spotlight-pointer>
-7. Click <walkthrough-spotlight-pointer locator="text('DETAILS')">DETAILS</walkthrough-spotlight-pointer> 
+5. Click <walkthrough-spotlight-pointer locator="semantic({gridcell 'ulb_fraud_detection_biglake'})">ulb_fraud_detection_biglake</walkthrough-spotlight-pointer>
+6. Click <walkthrough-spotlight-pointer locator="text('DETAILS')">DETAILS</walkthrough-spotlight-pointer> 
 
 Have a look at the external data configuration. You can see the Cloud Storage bucket (`gs://...`) your data
 lives in.
