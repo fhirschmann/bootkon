@@ -79,7 +79,7 @@ Click into the terminal that has opened at the bottom of your screen.
 And copy & paste the following command and press return:
 
 ```bash
-BK_BRANCH=multicontent BK_STREAM=devex BK_REPO=fhirschmann/bootkon; . <(wget -qO- https://raw.githubusercontent.com/${BK_REPO}/main/.scripts/bk)
+BK_BRANCH=multicontent BK_STREAM=devex BK_REPO=fhirschmann/bootkon; . <(wget -qO- https://raw.githubusercontent.com/${BK_REPO}/${BK_BRANCH:=main}/.scripts/bk)
 ```
 
 Now, please go back to Cloud Shell and continue with the tutorial that has been opened on the right hand side of your screen!
