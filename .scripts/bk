@@ -84,7 +84,7 @@ fi
 if [ -d $BK_GITHUB_REPOSITORY ]; then
     echo -e "${GREEN}Not cloning $BK_REPO_URL because folder ~/$BK_GITHUB_REPOSITORY already exists.${NC}"
 else
-    echo -e "Cloning $BK_REPO_URL into $BK_GITHUB_REPOSITORY..."
+    echo -e "Cloning branch $BK_BRANCH from $BK_REPO_URL into $BK_GITHUB_REPOSITORY..."
     git clone --branch "$BK_BRANCH" https://github.com/${BK_REPO}.git
 fi
 
