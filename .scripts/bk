@@ -58,14 +58,19 @@ else
     echo -e "Setting BK_REPO to $BK_REPO based on first argument to this script."
 fi
 
+if [ -z $BK_STREAM ]; then
+    err 'Variable BK_STREAM is not set. Please set it to the stream you want to start'
+fi
+
 export BK_GITHUB_USERNAME=$(echo $BK_REPO | cut -d/ -f1) # first part of fhirschmann/bootkon
 export BK_GITHUB_REPOSITORY=$(echo $BK_REPO | cut -d/ -f2) # second part of fhirschmann/bootkon
 export BK_REPO_URL="https://github.com/${BK_REPO}.git"
-export BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
-export BK_STREAM="${BK_STREAM:-data}" # defaults to data; can be overwritten
+export BK_STREAM="${BK_STREAM}"
 export BK_DIR=~/${BK_GITHUB_REPOSITORY}
 export BK_INIT_SCRIPT=~/${BK_GITHUB_REPOSITORY}/bk
 export BK_INITIALIZED=1
+BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
+
 
 cd ~/
 
