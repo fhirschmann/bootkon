@@ -69,8 +69,6 @@ export BK_STREAM="${BK_STREAM}"
 export BK_DIR=~/${BK_GITHUB_REPOSITORY}
 export BK_INIT_SCRIPT=~/${BK_GITHUB_REPOSITORY}/bk
 export BK_INITIALIZED=1
-BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
-
 
 cd ~/
 
@@ -84,6 +82,7 @@ fi
 if [ -d $BK_GITHUB_REPOSITORY ]; then
     echo -e "${GREEN}Not cloning $BK_REPO_URL because folder ~/$BK_GITHUB_REPOSITORY already exists.${NC}"
 else
+    BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
     echo -e "Cloning branch $BK_BRANCH from $BK_REPO_URL into $BK_GITHUB_REPOSITORY..."
     git clone --branch "$BK_BRANCH" https://github.com/${BK_REPO}.git
 fi
