@@ -70,6 +70,8 @@ export BK_INITIALIZED=1
 
 cd ~/
 
+pip install --quiet jinja2 nbformat nbconvert
+
 if ! command -v git &> /dev/null; then
     sudo apt update
     sudo apt install -y git
@@ -153,8 +155,6 @@ line='if [ -f ${BK_INIT_SCRIPT} ]; then source ${BK_INIT_SCRIPT}; fi'
 grep -qxF "$line" ~/.bashrc || echo "$line" >> ~/.bashrc
 
 unset line
-
-pip install --quiet jinja2
 
 echo
 echo -e "         __                 --------------------------------------------------------"
