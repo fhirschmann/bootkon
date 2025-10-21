@@ -213,7 +213,7 @@ For  the sentiment inference step to succeed, you need to grant the external con
      
  <img src= "../img/lab3/serviceaccountconnection.png" alt="serviceaccountconnection" style="border: 1px solid grey;">  
 
-2. Take note of the service account and grant it the `Vertex AI User` role.   
+2. Take note of the service account and grant it the `Vertex AI User` role in [IAM](https://console.cloud.google.com/iam-admin).   
  <img src= "../img/lab3/vertexairole.png" alt="vertexairole" style="border: 1px solid grey;">
      
 3. Back in your [Dataform](https://console.cloud.google.com/bigquery/dataform) workspace, click <walkthrough-spotlight-pointer locator="semantic({button 'Start execution'})"> Start execution</walkthrough-spotlight-pointer> from the top menu, then <walkthrough-spotlight-pointer locator="semantic({menuitem 'Execute actions'})">Execute Actions</walkthrough-spotlight-pointer>
