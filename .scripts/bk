@@ -106,17 +106,15 @@ fi
 unset NEW_PATH
 unset PATH_EXPORT_LINE
 
+echo -e "Sourcing $(readlink -f $BK_DIR/vars.sh)"
+source $BK_DIR/vars.sh
 
-
-echo -e "Sourcing $(readlink -f vars.sh)"
-source vars.sh
-
-if [ -f vars.local.sh ]; then
-    echo -e "Sourcing $(readlink -f vars.local.sh)"
-    source vars.local.sh
+if [ -f $BK_DIR/vars.local.sh ]; then
+    echo -e "Sourcing $(readlink -f $BK_DIR/vars.local.sh)"
+    source $BK_DIR/vars.local.sh
 fi
 
-echo -e "Variables from vars.sh: PROJECT_ID=${YELLOW}$PROJECT_ID${NC} GCP_USERNAME=${YELLOW}$GCP_USERNAME${NC} REGION=${YELLOW}$REGION${NC}"
+echo -e "Variables from $BK_DIR/vars.sh: PROJECT_ID=${YELLOW}$PROJECT_ID${NC} GCP_USERNAME=${YELLOW}$GCP_USERNAME${NC} REGION=${YELLOW}$REGION${NC}"
 
 
 if [ -z $PROJECT_ID ]; then
