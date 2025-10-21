@@ -63,10 +63,11 @@ gcloud storage buckets add-iam-policy-binding gs://{{ PROJECT_ID }}-bucket \
 Let's create a data set that contains the table and the external connection to Cloud Storage.
 
 1. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery)
-2. Hover your mouse over <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node {{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
-3. Click the three vertical dots (⋮) and go to `Create dataset`
-4. Enter `ml_datasets` (plural) in the ID field. Region should be multi-region US.
-5. Click `Create dataset`
+2. Choose <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
+3. Hover your mouse over <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node {{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
+4. Click the three vertical dots (⋮) and go to `Create dataset`
+5. Enter `ml_datasets` (plural) in the ID field. Region should be multi-region US.
+6. Click `Create dataset`
 
 Alternatively, you can create the data set on the command line:
 ```bash
