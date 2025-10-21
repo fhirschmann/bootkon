@@ -80,7 +80,7 @@ Here you can can see that a model in the Vertex AI Model Registry is made up fro
 
 The endpoint is created in a parallel branch in the pipeline you just ran. You can deploy models to an endpoint through the model registry.
 
-1. Click <walkthrough-spotlight-pointer locator="css(a[id$=cfctest-section-nav-item-ai-platform-online-prediction])">Online Prediction</walkthrough-spotlight-pointer> in the navigation menu
+1. Click <walkthrough-spotlight-pointer locator="css(a[id$=cfctest-section-nav-item-ai-platform-online-prediction])">Endpoints</walkthrough-spotlight-pointer> in the navigation menu
 2. Click <walkthrough-spotlight-pointer locator="semantic({link 'bootkon-endpoint'})">bootkon-endpoint</walkthrough-spotlight-pointer>
 
 You can see that the endpoint has one model deployed currently, and all the traffic is routed to it (traffic split is 100%). When scrolling down, you get live graphs as soon as predictions are coming in.
