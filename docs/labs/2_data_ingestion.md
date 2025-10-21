@@ -74,10 +74,11 @@ bq --location=us mk -d ml_datasets
 ```
 
 Next, we connect the data in Cloud Storage to BigQuery:
-1. Click <walkthrough-spotlight-pointer locator="spotlight(bigquery-add-data)">+ Add data</walkthrough-spotlight-pointer>
-2. Click <walkthrough-spotlight-pointer locator="semantic({button 'Google Cloud Storage'})">Google Cloud Storage</walkthrough-spotlight-pointer>
-3. Select `Load to BigQuery`
-4. Enter the following details:
+1. Choose <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
+2. Click <walkthrough-spotlight-pointer locator="spotlight(bigquery-add-data)">+ Add data</walkthrough-spotlight-pointer>
+3. Click <walkthrough-spotlight-pointer locator="semantic({button 'Google Cloud Storage'})">Google Cloud Storage</walkthrough-spotlight-pointer>
+4. Select `Load to BigQuery`
+5. Enter the following details:
 - Create table from: `Google Cloud Storage`
 - Select file: `{{ PROJECT_ID }}-bucket/data/parquet/ulb_fraud_detection/*`
 - File format: `Parquet`
@@ -88,7 +89,7 @@ Next, we connect the data in Cloud Storage to BigQuery:
 - Check *Create a BigLake table using a Cloud Resource connection*
 - Connection ID: Select `us.fraud-transactions-conn`
 - Schema: `Auto detect`
-5. Click on <walkthrough-spotlight-pointer locator="semantic({button 'Create table'})">Create table</walkthrough-spotlight-pointer>
+6. Click on <walkthrough-spotlight-pointer locator="semantic({button 'Create table'})">Create table</walkthrough-spotlight-pointer>
 
 Alternatively, you can also use the command line to create the table:
 
