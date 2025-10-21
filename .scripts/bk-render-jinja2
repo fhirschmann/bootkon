@@ -6,10 +6,8 @@ import json
 import sys
 import os
 import re
-import nbformat
 import base64
 from functools import partial
-from nbconvert import HTMLExporter, MarkdownExporter
 
 import jinja2
 
@@ -42,6 +40,9 @@ def apply_to_content(data, func):
 
 
 def render_jupyter(path):
+    import nbformat
+    from nbconvert import HTMLExporter, MarkdownExporter
+
     with open(path) as f:
         nb = nbformat.read(f, as_version=4)
         exporter = HTMLExporter()
