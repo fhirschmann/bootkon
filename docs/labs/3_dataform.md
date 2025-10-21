@@ -209,7 +209,7 @@ Go to [Dataform](https://console.cloud.google.com/bigquery/dataform)\> <walkthro
 
 For  the sentiment inference step to succeed, you need to grant the external connection service account the Vertex AI user privilege. More details can be found in this [link](https://cloud.google.com/bigquery/docs/generate-text-tutorial#grant-permissions). 
 
-1. You can find the service account ID under [BigQuery Studio](https://console.cloud.google.com/bigquery) \> ``{{ PROJECT_ID }}`` \> <walkthrough-spotlight-pointer locator="semantic({treeitem 'External connections'})">External connections</walkthrough-spotlight-pointer> \> `fraud-transactions-conn`  
+1. You can find the service account ID under [BigQuery Studio](https://console.cloud.google.com/bigquery) \> <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer> \> ``{{ PROJECT_ID }}`` \> <walkthrough-spotlight-pointer locator="semantic({treeitem 'Connections'})">Connections</walkthrough-spotlight-pointer> \> `fraud-transactions-conn`  
      
  <img src= "../img/lab3/serviceaccountconnection.png" alt="serviceaccountconnection" style="border: 1px solid grey;">  
 
