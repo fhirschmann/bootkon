@@ -65,7 +65,6 @@ export BK_REPO_URL="https://github.com/${BK_REPO}.git"
 export BK_TUTORIAL="${BK_TUTORIAL:-docs/TUTORIAL.md}" # defaults to .TUTORIAL.md; can be overwritten
 export BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
 export BK_DIR=~/${BK_GITHUB_REPOSITORY}
-export BK_INIT_SCRIPT=~/${BK_GITHUB_REPOSITORY}/bk
 export BK_INITIALIZED=1
 
 cd ~/
@@ -85,15 +84,29 @@ fi
 cd $BK_GITHUB_REPOSITORY
 
 NEW_PATH=~/${BK_GITHUB_REPOSITORY}/.scripts
+PATH_EXPORT_LINE="export PATH=\${HOME}/${BK_GITHUB_REPOSITORY}/.scripts:\$PATH"
 
-# Check if the new path is already in the PATH
+# 1. Add to current session's PATH if missing
 if [[ ":$PATH:" != *":$NEW_PATH:"* ]]; then
-echo -e "${MAGENTA}Adding $NEW_PATH to your PATH${NC}"
+    echo -e "${MAGENTA}Adding $NEW_PATH to your current session's PATH${NC}"
     export PATH=${NEW_PATH}:$PATH
 else
-    echo -e "${GREEN}Your PATH already contains $NEW_PATH. Not adding it again.${NC}"
+    echo -e "${GREEN}Your current session's PATH already contains $NEW_PATH. Not adding it again.${NC}"
 fi
+
+# 2. Persist the PATH setting in ~/.bashrc if not already there
+if ! grep -qF "$PATH_EXPORT_LINE" ~/.bashrc ; then
+    echo -e "${MAGENTA}Adding $NEW_PATH to ~/.bashrc for future sessions.${NC}"
+    # Use '>>' to append the line to the file
+    echo "$PATH_EXPORT_LINE" >> ~/.bashrc
+else
+    echo -e "${GREEN}The permanent PATH export for $NEW_PATH is already in ~/.bashrc. Skipping.${NC}"
+fi
+
 unset NEW_PATH
+unset PATH_EXPORT_LINE
+
+
 
 echo -e "Sourcing $(readlink -f vars.sh)"
 source vars.sh
@@ -135,24 +148,6 @@ else
     echo "Adding BK_REPO to .bashrc"
     echo "$line" >> ~/.bashrc
 fi
-
-## Set or update $BK_INIT_SCRIPT in ~/.bashrc
-line="export BK_INIT_SCRIPT=~/${BK_GITHUB_REPOSITORY}/.scripts/bk"
-if grep -q '^export BK_INIT_SCRIPT=' ~/.bashrc; then
-    # If the line exists but differs, update it
-    if ! grep -Fxq "$line" ~/.bashrc; then
-        sed -i "s|^export BK_INIT_SCRIPT=.*|$line|" ~/.bashrc
-        echo "Updated the existing BK_INIT_SCRIPT line in ~/.bashrc."
-    fi
-else
-    echo "$line" >> ~/.bashrc
-fi
-
-## Load $BK_INIT_SCRIPT in ~/.bashrc
-line='if [ -f ${BK_INIT_SCRIPT} ]; then source ${BK_INIT_SCRIPT}; fi'
-grep -qxF "$line" ~/.bashrc || echo "$line" >> ~/.bashrc
-
-unset line
 
 echo
 echo -e "         __                 --------------------------------------------------------"
