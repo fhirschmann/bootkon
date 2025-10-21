@@ -47,7 +47,7 @@ Let's double check the service account.
 1. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery).
 2. Click <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
 3. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node {{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
-4. Click <walkthrough-spotlight-pointer locator="css(span[id$=ProjectTreeDatasource-{{ PROJECT_ID }}-bucket-connection])">External connections</walkthrough-spotlight-pointer>
+4. Click <walkthrough-spotlight-pointer locator="css(span[id$=ProjectTreeDatasource-{{ PROJECT_ID }}-bucket-connection])">Connections</walkthrough-spotlight-pointer>
 5. Click <walkthrough-spotlight-pointer locator="semantic({button 'fraud-transactions-conn'})">fraud-transactions-conn</walkthrough-spotlight-pointer>
 
 Is the service account equivalent to the one you got from the command line?
