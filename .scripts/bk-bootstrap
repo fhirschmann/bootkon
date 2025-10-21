@@ -58,3 +58,19 @@ for role in "${service_account_roles[@]}"; do
     gcloud projects add-iam-policy-binding "$PROJECT_ID" \
         --member="serviceAccount:$COMPUTE_SERVICE_ACCOUNT" --role="$role" >>/dev/null
 done
+
+VERTEX_AI_CC_SERVICE_ACCOUNT="service-$PROJECT_NUMBER@gcp-sa-aiplatform-cc.iam.gserviceaccount.com"
+
+# Array of roles to grant to the Vertex AI Custom Code Service Agent
+declare -a vertex_cc_service_agent_roles=(
+    "roles/artifactregistry.reader"          # AI Platform Artifact Registry Reader
+    "roles/artifactregistry.serviceAgent"    # Custom Artifact Registry Service Agent
+    "roles/aiplatform.customCodeServiceAgent" # Vertex AI Custom Code Service Agent
+)
+
+# Assign roles to the Vertex AI Custom Code Service Account
+for role in "${vertex_cc_service_agent_roles[@]}"; do
+    echo "Assigning role $role to $VERTEX_AI_CC_SERVICE_ACCOUNT in project $PROJECT_ID..."
+    gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+        --member="serviceAccount:$VERTEX_AI_CC_SERVICE_ACCOUNT" --role="$role" >>/dev/null
+done
