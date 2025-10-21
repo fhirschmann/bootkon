@@ -100,8 +100,8 @@ bq mk --table \
 ```
 
 Let's have a look at the data set:
-1. Choose <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
-2. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery)
+1. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery)
+2. Choose <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
 3. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node {{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
 4. Click <walkthrough-spotlight-pointer locator="css(span[id$=ProjectTreeDatasource-{{ PROJECT_ID }}-bucket-dataset])">Datasets</walkthrough-spotlight-pointer>
 5. Click <walkthrough-spotlight-pointer locator="semantic({button 'ml_datasets'})">ml_datasets</walkthrough-spotlight-pointer>
