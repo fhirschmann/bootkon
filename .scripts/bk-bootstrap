@@ -69,8 +69,8 @@ declare -a vertex_cc_service_agent_roles=(
 )
 
 # Assign roles to the Vertex AI Custom Code Service Account
-for role in "${vertex_cc_service_agent_roles[@]}"; do
-    echo "Assigning role $role to $VERTEX_AI_CC_SERVICE_ACCOUNT in project $PROJECT_ID..."
-    gcloud projects add-iam-policy-binding "$PROJECT_ID" \
-        --member="serviceAccount:$VERTEX_AI_CC_SERVICE_ACCOUNT" --role="$role" >>/dev/null
-done
+#for role in "${vertex_cc_service_agent_roles[@]}"; do
+#    echo "Assigning role $role to $VERTEX_AI_CC_SERVICE_ACCOUNT in project $PROJECT_ID..."
+#    gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+#        --member="serviceAccount:$VERTEX_AI_CC_SERVICE_ACCOUNT" --role="$role" >>/dev/null
+#done
