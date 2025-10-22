@@ -91,8 +91,8 @@ You can also train and deploy models on Vertex in the UI only. Let's have a more
 
 Let's have a look at the Pipeline as well.
 
-1. Click <walkthrough-spotlight-pointer locator="css(a[id$=cfctest-section-nav-item-ai-platform-ml-pipelines])">Pipelines</walkthrough-spotlight-pointer> in the navigation menu
-2. Click <walkthrough-spotlight-pointer locator="semantic({link 'bootkon-pipeline-'})">bootkon-pipeline-...</walkthrough-spotlight-pointer>
+1. Click <walkthrough-spotlight-pointer locator="css(a[aria-label$=Pipelines])">Pipelines</walkthrough-spotlight-pointer> in the navigation menu
+2. Click <walkthrough-spotlight-pointer locator='semantic({link "bootkon-pipeline-*"})'>bootkon-pipeline-...</walkthrough-spotlight-pointer>
 
 You can now see the individual steps in the pipeline. Please click through the individual steps of the pipeline and have a look at the *Pipeline run analysis* on the right hand side as you cycle pipeline steps. 
 
