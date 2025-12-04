@@ -8,8 +8,8 @@
 
 # DevEx Bootkon
 
-<walkthrough-tutorial-duration duration="15"></walkthrough-tutorial-duration>
-<walkthrough-tutorial-difficulty difficulty="1"></walkthrough-tutorial-difficulty>
+<walkthrough-tutorial-duration duration="120"></walkthrough-tutorial-duration>
+<walkthrough-tutorial-difficulty difficulty="3"></walkthrough-tutorial-difficulty>
 
 
 ## Introduction
