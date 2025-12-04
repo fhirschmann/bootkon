@@ -28,11 +28,11 @@ In this lab, you will learn how to do the following:
 
 1. Sign-in to the  [Google Cloud Console](http://console.cloud.google.com) and create a new project or reuse an existing one. If you don't already have a Gmail or Google Workspace account, you must  [create one](https://accounts.google.com/SignUp).
 
-<img src="img/fbef9caa1602edd0.png" alt="fbef9caa1602edd0.png"  width="328.00" />
+<img src="../img/fbef9caa1602edd0.png" alt="fbef9caa1602edd0.png"  width="328.00" />
 
-<img src="img/a99b7ace416376c4.png" alt="a99b7ace416376c4.png"  width="401.24" />
+<img src="../img/a99b7ace416376c4.png" alt="a99b7ace416376c4.png"  width="401.24" />
 
-<img src="img/5e3ff691252acf41.png" alt="5e3ff691252acf41.png"  width="466.00" />
+<img src="../img/5e3ff691252acf41.png" alt="5e3ff691252acf41.png"  width="466.00" />
 
 * The **Project name** is the display name for this project's participants. It is a character string not used by Google APIs. You can always update it.
 * The **Project ID** is unique across all Google Cloud projects and is immutable (cannot be changed after it has been set). The Cloud Console auto-generates a unique string; usually you don't care what it is. In most codelabs, you'll need to reference your Project ID (typically identified as `PROJECT_ID`). If you don't like the generated ID, you might generate another random one. Alternatively, you can try your own, and see if it's available. It can't be changed after this step and remains for the duration of the project.
@@ -52,23 +52,23 @@ In this lab, you will learn how to do the following:
 
 Open Gemini chat.
 
-<img src="img/bc3c899ac8bcf488.png" alt="bc3c899ac8bcf488.png"  width="337.50" />
+<img src="../img/bc3c899ac8bcf488.png" alt="bc3c899ac8bcf488.png"  width="337.50" />
 
 Or type "Ask Gemini" in the search bar.
 
-<img src="img/e1e9ad314691368a.png" alt="e1e9ad314691368a.png"  width="624.00" />
+<img src="../img/e1e9ad314691368a.png" alt="e1e9ad314691368a.png"  width="624.00" />
 
 Enable Gemini for Google Cloud API:
 
-<img src="img/636114fa6e5f0abf.png" alt="636114fa6e5f0abf.png"  width="334.50" />
+<img src="../img/636114fa6e5f0abf.png" alt="636114fa6e5f0abf.png"  width="334.50" />
 
 Enable GCA on the next screen.
 
-<img src="img/8e234b2e282c4413.png" alt="8e234b2e282c4413.png"  width="423.50" />
+<img src="../img/8e234b2e282c4413.png" alt="8e234b2e282c4413.png"  width="423.50" />
 
 Click "`Start chatting`" and follow one of the sample questions or type your own prompt to try it out.
 
-<img src="img/ed120d672468b412.png" alt="ed120d672468b412.png"  width="366.69" />
+<img src="../img/ed120d672468b412.png" alt="ed120d672468b412.png"  width="366.69" />
 
 
 Prompts to try:
@@ -130,11 +130,11 @@ The Google Gemini web app (gemini.google.com) is a web-based tool designed to he
 
 Activate Cloud Shell by clicking on the icon to the right of the search bar.
 
-<img src="img/3e0c761ca41f315e.png" alt="3e0c761ca41f315e.png"  width="624.00" />
+<img src="../img/3e0c761ca41f315e.png" alt="3e0c761ca41f315e.png"  width="624.00" />
 
  If prompted to authorize, click "Authorize" to continue.
 
-<img src="img/6356559df3eccdda.png" alt="6356559df3eccdda.png"  width="429.00" />
+<img src="../img/6356559df3eccdda.png" alt="6356559df3eccdda.png"  width="429.00" />
 
 In the terminal, run the commands below to clone the Git repository locally.
 
@@ -145,19 +145,19 @@ cd calendar-app-lab
 
 Start "Cloud Shell Editor".
 
-<img src="img/18ca8f879206a382.png" alt="18ca8f879206a382.png"  width="418.50" />
+<img src="../img/18ca8f879206a382.png" alt="18ca8f879206a382.png"  width="418.50" />
 
 Open the "`calendar-app-lab`" folder.
 
-<img src="img/7cef847802b51038.png" alt="7cef847802b51038.png"  width="624.00" />
+<img src="../img/7cef847802b51038.png" alt="7cef847802b51038.png"  width="624.00" />
 
 Start a new terminal in the Cloud Shell Editor.
 
-<img src="img/3336bea9c0e999b9.png" alt="3336bea9c0e999b9.png"  width="624.00" />
+<img src="../img/3336bea9c0e999b9.png" alt="3336bea9c0e999b9.png"  width="624.00" />
 
 Your environment should look similar to the screenshot below.
 
-<img src="img/ae9475871b7d28a6.png" alt="ae9475871b7d28a6.png"  width="624.00" />
+<img src="../img/ae9475871b7d28a6.png" alt="ae9475871b7d28a6.png"  width="624.00" />
 
 
 ## Gemini CLI Introduction
@@ -192,7 +192,7 @@ If you are following the steps in your local environment, you can enable integra
 
 You can always change this by running `/ide disable | enable`.
 
-<img src="img/eaee08868abb4ccd.png" alt="eaee08868abb4ccd.png"  width="624.00" />
+<img src="../img/eaee08868abb4ccd.png" alt="eaee08868abb4ccd.png"  width="624.00" />
 
 If you are running the lab in the Qwiklabs environment, select "`Use Cloud Shell user credentials`".
 
@@ -204,9 +204,9 @@ Otherwise authenticate Gemini CLI by running following command and select "`Logi
 
 After restarting the CLI, you will be prompted to authorize the application by following a provided link.
 
-<img src="img/390e8cbd9a32e8eb.png" alt="390e8cbd9a32e8eb.png"  width="624.00" />
+<img src="../img/390e8cbd9a32e8eb.png" alt="390e8cbd9a32e8eb.png"  width="624.00" />
 
-Open the link and follow the steps to sign-in with your Qwiklabs student's credentials. <img src="img/24c1671a3c14b61d.png" alt="24c1671a3c14b61d.png"  width="624.00" />
+Open the link and follow the steps to sign-in with your Qwiklabs student's credentials. <img src="../img/24c1671a3c14b61d.png" alt="24c1671a3c14b61d.png"  width="624.00" />
 
 Copy verification code and return to the terminal to complete the process by pasting the code.
 
@@ -216,7 +216,7 @@ To verify your Auth method, run following command:
 /about
 ```
 
-<img src="img/f15a4036437b84d5.png" alt="f15a4036437b84d5.png"  width="472.50" />
+<img src="../img/f15a4036437b84d5.png" alt="f15a4036437b84d5.png"  width="472.50" />
 
 
 ## Codebase understanding
@@ -233,7 +233,7 @@ Don't suggest any changes. Explain this codebase to me.
 
 Review the output:
 
-<img src="img/63b57c91fd0e90a8.png" alt="63b57c91fd0e90a8.png"  width="624.00" />
+<img src="../img/63b57c91fd0e90a8.png" alt="63b57c91fd0e90a8.png"  width="624.00" />
 
 
 ## Start the application locally
@@ -250,17 +250,17 @@ Run this app locally
 
 Follow the prompts to get application started:
 
-<img src="img/d1fefa449b733c15.png" alt="d1fefa449b733c15.png"  width="624.00" />
+<img src="../img/d1fefa449b733c15.png" alt="d1fefa449b733c15.png"  width="624.00" />
 
 Click on the link to preview application:
 
-<img src="img/695fc8a1abab0aa7.png" alt="695fc8a1abab0aa7.png"  width="624.00" />
+<img src="../img/695fc8a1abab0aa7.png" alt="695fc8a1abab0aa7.png"  width="624.00" />
 
 Sample output:
 
-<img src="img/e9f986d9088b4419.png" alt="e9f986d9088b4419.png"  width="354.50" />
+<img src="../img/e9f986d9088b4419.png" alt="e9f986d9088b4419.png"  width="354.50" />
 
-<img src="img/d2bb703195b4f99.png" alt="d2bb703195b4f99.png"  width="359.18" />
+<img src="../img/d2bb703195b4f99.png" alt="d2bb703195b4f99.png"  width="359.18" />
 
 
 ## Adding documentation
@@ -277,7 +277,7 @@ Add docstrings to all files
 
 Approve the changes that have been suggested. If IDE integration is enabled, you can accept and proceed by using the UI controls or pressing Enter in the terminal. You can also enable auto-approve(YOLO) mode with "`ctrl+y`".
 
-<img src="img/a41d76b77290cc10.png" alt="a41d76b77290cc10.png"  width="624.00" />
+<img src="../img/a41d76b77290cc10.png" alt="a41d76b77290cc10.png"  width="624.00" />
 
 Update the `.gitignore` file with the following prompt:
 
@@ -287,7 +287,7 @@ update .gitignore and add __pycache__ folder
 
 Switch to Source Control view and review changes that you made so far:
 
-<img src="img/2c41f8b842573384.png" alt="2c41f8b842573384.png"  width="624.00" />
+<img src="../img/2c41f8b842573384.png" alt="2c41f8b842573384.png"  width="624.00" />
 
 
 ## Adding Unit Tests
@@ -304,11 +304,11 @@ Generate unit tests for @calendar.py
 
 Accept the changes after reviewing them.
 
-<img src="img/6b59d78b83152a22.png" alt="6b59d78b83152a22.png"  width="624.00" />
+<img src="../img/6b59d78b83152a22.png" alt="6b59d78b83152a22.png"  width="624.00" />
 
 Install new dependencies and run the tests. The Gemini CLI will observe, fix, and re-run the generated code in a loop until tests pass and the code is validated.
 
-<img src="img/ec1a4fbb2d340384.png" alt="ec1a4fbb2d340384.png"  width="624.00" />
+<img src="../img/ec1a4fbb2d340384.png" alt="ec1a4fbb2d340384.png"  width="624.00" />
 
 
 ## Check for bugs
@@ -325,7 +325,7 @@ Are there any bugs in the conversion logic? Check if negative numbers are handle
 
 Review suggested changes and accept them in the chat:
 
-<img src="img/54ef65ded5462b34.png" alt="54ef65ded5462b34.png"  width="624.00" />
+<img src="../img/54ef65ded5462b34.png" alt="54ef65ded5462b34.png"  width="624.00" />
 
 
 ## Refactor UI
@@ -342,7 +342,7 @@ Refactor UI to use Bootstrap library
 
 Review and accept the changes:
 
-<img src="img/16e6ca14e703127.png" alt="16e6ca14e703127.png"  width="624.00" />
+<img src="../img/16e6ca14e703127.png" alt="16e6ca14e703127.png"  width="624.00" />
 
 To begin, launch the application. If it's already running, simply reload the page.
 
@@ -352,9 +352,9 @@ python3 main.py
 
 Reload the page  and check the changes.
 
-<img src="img/b52a709e902040e3.png" alt="b52a709e902040e3.png"  width="624.00" />
+<img src="../img/b52a709e902040e3.png" alt="b52a709e902040e3.png"  width="624.00" />
 
-<img src="img/54664e527bcd9227.png" alt="54664e527bcd9227.png"  width="624.00" />
+<img src="../img/54664e527bcd9227.png" alt="54664e527bcd9227.png"  width="624.00" />
 
 Implement error handling to ensure an error page is displayed when issues arise.
 
@@ -366,7 +366,7 @@ Please refresh the page to view the updates.
 
 Send a negative number to confirm the error page.
 
-<img src="img/82e16d4cf25933db.png" alt="82e16d4cf25933db.png"  width="337.50" />
+<img src="../img/82e16d4cf25933db.png" alt="82e16d4cf25933db.png"  width="337.50" />
 
 
 ## Refactor Backend
@@ -383,15 +383,15 @@ Store requests in memory and create a page to display conversion history. Add li
 
 Review and accept the changes in the chat:
 
-<img src="img/19cfa20552fb3a01.png" alt="19cfa20552fb3a01.png"  width="624.00" />
+<img src="../img/19cfa20552fb3a01.png" alt="19cfa20552fb3a01.png"  width="624.00" />
 
 Submit several requests to the application, then review history page.
 
-<img src="img/ac5639d18b341b0a.png" alt="ac5639d18b341b0a.png"  width="624.00" />
+<img src="../img/ac5639d18b341b0a.png" alt="ac5639d18b341b0a.png"  width="624.00" />
 
 Review the history of conversion requests.
 
-<img src="img/9ca680e193510640.png" alt="9ca680e193510640.png"  width="624.00" />
+<img src="../img/9ca680e193510640.png" alt="9ca680e193510640.png"  width="624.00" />
 
 To update the README.md file with the current codebase state, send this prompt via Gemini CLI:
 
@@ -416,7 +416,7 @@ Send this prompt in Gemini CLI to view the available tools:
 
 Review the output.
 
-<img src="img/e5ef2d9b81f6c10.png" alt="e5ef2d9b81f6c10.png"  width="624.00" />
+<img src="../img/e5ef2d9b81f6c10.png" alt="e5ef2d9b81f6c10.png"  width="624.00" />
 
 Gemini CLI intelligently selects the most appropriate built-in tools based on the task you provide, allowing it to execute complex operations by leveraging its understanding of your request and the available functionalities.  [Learn more about the built-in tools](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/index.md#learn-more-about-gemini-clis-tools).
 
@@ -458,17 +458,17 @@ Accept tools calls, like creating a folder and saving a file.
 
 Review the output.
 
-<img src="img/a85a31f482a2cc7d.png" alt="a85a31f482a2cc7d.png"  width="624.00" />
+<img src="../img/a85a31f482a2cc7d.png" alt="a85a31f482a2cc7d.png"  width="624.00" />
 
 If you want to preview the diagram, install `Mermaid Chart` extension from the Marketplace.
 
-<img src="img/22d4a002e2137b55.png" alt="22d4a002e2137b55.png"  width="624.00" />
+<img src="../img/22d4a002e2137b55.png" alt="22d4a002e2137b55.png"  width="624.00" />
 
 Open the file and select preview from the context menu.
 
-<img src="img/bccf0ae8ac46415f.png" alt="bccf0ae8ac46415f.png"  width="624.00" />
+<img src="../img/bccf0ae8ac46415f.png" alt="bccf0ae8ac46415f.png"  width="624.00" />
 
-<img src="img/c669fcd96c34662.png" alt="c669fcd96c34662.png"  width="624.00" />
+<img src="../img/c669fcd96c34662.png" alt="c669fcd96c34662.png"  width="624.00" />
 
 ### Custom Command To Create a Deck
 
@@ -482,17 +482,17 @@ Accept tools calls, like creating a folder and saving a file.
 
 Review the output.
 
-<img src="img/c9aa767796204c7c.png" alt="c9aa767796204c7c.png"  width="624.00" />
+<img src="../img/c9aa767796204c7c.png" alt="c9aa767796204c7c.png"  width="624.00" />
 
 This step is not compatible with Cloud Shell, as the Marp extension requires a Web browser installation.
 
 Install Marp for VS Code extension from the Marketplace to save the deck.
 
-<img src="img/a9d339718cbfcd9.png" alt="a9d339718cbfcd9.png"  width="624.00" />
+<img src="../img/a9d339718cbfcd9.png" alt="a9d339718cbfcd9.png"  width="624.00" />
 
 Otherwise you would open the generated file in the editor and from the command palette select "`Marp: Export Slide Deck`".
 
-<img src="img/91143fe81f7f5d71.png" alt="91143fe81f7f5d71.png"  width="624.00" />
+<img src="../img/91143fe81f7f5d71.png" alt="91143fe81f7f5d71.png"  width="624.00" />
 
 ### Custom Command To Plan New Feature Implementation
 
@@ -506,7 +506,7 @@ Accept tools calls, like creating a folder and saving a file.
 
 Review the output.
 
-<img src="img/552dbe189a493f91.png" alt="552dbe189a493f91.png"  width="624.00" />
+<img src="../img/552dbe189a493f91.png" alt="552dbe189a493f91.png"  width="624.00" />
 
 Initiate the UI refactoring process by submitting this prompt through the Gemini CLI, based on the previously generated plan.
 
@@ -516,13 +516,13 @@ Accept tools calls, like creating a folder and saving a file. You can enable too
 /plan:impl implement the plan to refactor the app
 ```
 
-<img src="img/a3ceec7146f285e0.png" alt="a3ceec7146f285e0.png"  width="624.00" />
+<img src="../img/a3ceec7146f285e0.png" alt="a3ceec7146f285e0.png"  width="624.00" />
 
 Start/reload the application and review the output:
 
-<img src="img/fd0675f713d361e4.png" alt="fd0675f713d361e4.png"  width="373.50" />
+<img src="../img/fd0675f713d361e4.png" alt="fd0675f713d361e4.png"  width="373.50" />
 
-<img src="img/7352b93acabfb5be.png" alt="7352b93acabfb5be.png"  width="374.21" />
+<img src="../img/7352b93acabfb5be.png" alt="7352b93acabfb5be.png"  width="374.21" />
 
 
 ## Gemini CLI Non-interactive Mode
@@ -595,7 +595,7 @@ Verify configured MCP servers:
 
 Review the output
 
-<img src="img/c80d95544cc3436a.png" alt="c80d95544cc3436a.png"  width="624.00" />
+<img src="../img/c80d95544cc3436a.png" alt="c80d95544cc3436a.png"  width="624.00" />
 
 Send the prompt to test configured MCP server:
 
@@ -605,7 +605,7 @@ use context7 tools to look up how to implement flex grid in react mui library
 
 Approve the tools and review the output.
 
-<img src="img/b51db5af09bd3f02.png" alt="b51db5af09bd3f02.png"  width="624.00" />
+<img src="../img/b51db5af09bd3f02.png" alt="b51db5af09bd3f02.png"  width="624.00" />
 
 
 ## Example MCP servers configuration for your local environment
@@ -687,5 +687,5 @@ To avoid incurring charges to your Google Cloud account for the resources used i
 
 The easiest way to eliminate billing is to delete the project that you created for the tutorial.
 
-©2024 Google LLC All rights reserved. Google and the Google logo are trademarks of Google LLC. All other company and product names may be trademarks of the respective companies with which they are associated.
+©2025 Google LLC All rights reserved. Google and the Google logo are trademarks of Google LLC. All other company and product names may be trademarks of the respective companies with which they are associated.
 
