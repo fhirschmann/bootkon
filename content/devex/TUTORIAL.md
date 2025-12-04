@@ -59,7 +59,7 @@ Now, your
 
 If neither is `None`, press the `START` button below to get started!
 
-{% include 'devex/labs/1_environment_setup.md' %}
+{% include 'devex/labs/1_devex_gemini_cli.md' %}
 
 ## The end
 
