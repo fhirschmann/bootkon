@@ -148,9 +148,8 @@ You can filter the data to be scanned for profiling by using row filters and col
 Dataplex lets you specify a percentage of records from your data to sample for running a data profiling scan. Creating data profiling scans on a smaller sample of data can reduce the execution time and cost of querying the entire dataset.
 
 Let's get started:
-
-1. Go to the <walkthrough-spotlight-pointer locator="semantic({link 'Profile, 1 of 2'})">Profile</walkthrough-spotlight-pointer> section in Dataplex.
-2. Click <walkthrough-spotlight-pointer locator="semantic({button 'Create Data Profile scan'})">+ CREATE DATA PROFILE SCAN</walkthrough-spotlight-pointer>
+1. Go to the <walkthrough-spotlight-pointer locator="semantic({link 'Data profiling &amp; quality, 1 of 1'})">Data profiling & quality</walkthrough-spotlight-pointer> section in Dataplex.
+2. Click <walkthrough-spotlight-pointer locator="semantic({button 'Create data profile scan'})">Create data profile scan</walkthrough-spotlight-pointer>
 3. Set Display Name to `bootkon-profile-fraud-prediction` for example 
 4. Optionally add a description. For example, "data profile scans for fraud detection predictions"
 5. Leave the “Browse within Dataplex Lakes” option turned off
@@ -223,9 +222,9 @@ Creating and using a data quality scan consists of the following steps:
 
 **Lab Instructions**
 
-1. Go to the [Data Quality](https://console.cloud.google.com/dataplex/govern/quality) section in the left hand menu of Dataplex.
+1. Go to the <walkthrough-spotlight-pointer locator="semantic({link 'Data profiling &amp; quality, 1 of 1'})">Data profiling & quality</walkthrough-spotlight-pointer> section in the left hand menu of Dataplex.
 
-2. Click on <walkthrough-spotlight-pointer locator="semantic({button 'Create Data Quality scan'})"> + CREATE DATA QUALITY SCAN</walkthrough-spotlight-pointer>
+2. Click on <walkthrough-spotlight-pointer locator="semantic({button 'Create data quality scan'})">Create data quality scan</walkthrough-spotlight-pointer>
 3. Display Name: `bootkon-dquality-fraud-prediction` for example 
 4. Optionally add a description. For example, "data quality scans for fraud detection predictions"
 5. Leave the "Browse within Dataplex Lakes" option turned off 

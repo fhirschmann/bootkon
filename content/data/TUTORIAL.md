@@ -38,18 +38,20 @@ and set `GCP_USERNAME`, `PROJECT_ID` according to the information you received. 
 
 ❗ Please do not include any whitespaces when setting these variablers.
 
-Please reload bootkon and make sure there are no errors printed:
+Please initialize bootkon. The next command will set environment variables in your current terminal.
 
 ```bash
 . bk
 ```
 
-
-And restart the tutorial using the next command. You can also use the next command to continue bootkon in case you accidentally close the tutorial or the editor:
+Reload the tutorial window on the right-hand side of your screen.
 
 ```bash
 bk-start
 ```
+
+In case you accidently close the tutorial or the editor, you can execute `bk-start` to start it again. Please make sure that you execute `. bk` in every terminal
+you open so that the environment variables are set.
 
 Now, your
 

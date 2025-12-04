@@ -6,6 +6,7 @@ import json
 import sys
 import os
 import re
+import base64
 from functools import partial
 
 import jinja2
