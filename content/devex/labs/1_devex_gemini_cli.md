@@ -139,7 +139,7 @@ Activate Cloud Shell by clicking on the icon to the right of the search bar.
 In the terminal, run the commands below to clone the Git repository locally.
 
 ```
-git clone https://github.com/gitrey/calendar-app-lab
+git clone https://github.com/kbhattac/calendar-app-lab
 cd calendar-app-lab
 ```
 
