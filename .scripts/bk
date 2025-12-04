@@ -16,11 +16,9 @@
 #     . bk <username/repo>
 #
 #   Skip workspace opening (add to ~/.bashrc above bk):
-#     export BK_NO_WORKSPACE_OPEN=1
 #
 # Environment variables:
-#   BK_REPO: GitHub repository (<username/repo>). Defaults to fhirschmann/bootkon.
-#   BK_NO_WORKSPACE_OPEN: Prevents workspace auto-opening.
+#   BK_REPO: GitHub repository (<username/repo>).
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -151,6 +149,21 @@ if grep -q '^export BK_STREAM=' ~/.bashrc; then
     fi
 else
     echo "Adding BK_STREAM=$BK_STREAM to .bashrc"
+    echo "$line" >> ~/.bashrc
+fi
+
+
+## Set or update $BK_BRANCH in ~/.bashrc
+export BK_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+line="export BK_BRANCH=${BK_BRANCH}"
+if grep -q '^export BK_BRANCH=' ~/.bashrc; then
+    # If the line exists but differs, update it
+    if ! grep -Fxq "$line" ~/.bashrc; then
+        sed -i "s|^export BK_BRANCH=.*|$line|" ~/.bashrc
+        echo "Updated the existing BK_BRANCH line in ~/.bashrc."
+    fi
+else
+    echo "Adding BK_BRANCH=$BK_BRANCH to .bashrc"
     echo "$line" >> ~/.bashrc
 fi
 

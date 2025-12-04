@@ -10,6 +10,9 @@ from functools import partial
 
 import jinja2
 
+BK_BRANCH = os.environ.get("BK_BRANCH", "main")
+BK_STREAM = os.environ.get("BK_STREAM")
+
 # When this runs through GitHub actions, we use $GITHUB_REPOSITORY, otherwise $BK_REPO.
 BK_REPO=os.environ.get("GITHUB_REPOSITORY")
 if not BK_REPO:
@@ -36,12 +39,12 @@ def render_tutorial(content):
 
     rendered = re.sub(
         r'!\[(.*?)\]\(../img/(.*?)\)',
-        rf'![\1](https://github.com/{BK_REPO}/blob/main/docs/img/\2?raw=true)',
+        rf'![\1](https://github.com/{BK_REPO}/blob/{BK_BRANCH}/content/{BK_STREAM}/img/\2?raw=true)',
         rendered
     )
     rendered = re.sub(
         r'<img\s+src\s*=\s*["\']\.\./img/(.*?)["\']',
-        rf'<img src="https://github.com/{BK_REPO}/blob/main/docs/img/\1?raw=true"',
+        rf'<img src="https://github.com/{BK_REPO}/blob/{BK_BRANCH}/content/{BK_STREAM}/img/\1?raw=true"',
         rendered
     )
 
