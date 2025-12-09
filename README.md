@@ -1,9 +1,9 @@
-# Data & AI Bootkon: innovate and build with Google Cloud
+# Bootkon: innovate and build with Google Cloud
 
 ![](https://img.shields.io/github/actions/workflow/status/fhirschmann/bootkon/mdbook.yml?label=handbook%20build) ![](https://img.shields.io/github/last-commit/fhirschmann/bootkon) 
 
 
-Data & AI Bootkon is an immersive hackathon designed for tech enthusiasts, developers, and innovators to explore the power of Google Cloud products through hands-on learning. This event provides a unique, integrated experience using Google Cloud Shell tutorials, enabling participants to dive deep into cutting-edge cloud technologies.
+Bootkon is an immersive hackathon designed for tech enthusiasts, developers, and innovators to explore the power of Google Cloud products through hands-on learning. This event provides a unique, integrated experience using Google Cloud Shell tutorials, enabling participants to dive deep into cutting-edge cloud technologies.
 
 Bootkon consits of the following streams:
 
