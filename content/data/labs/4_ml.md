@@ -19,28 +19,28 @@ gcloud artifacts repositories create bootkon --repository-format=docker --locati
 Let us create two container images, one for training and one for serving predictions.
 
 The training container is comprised of the following files. Please have a look at them:
-- <walkthrough-editor-open-file filePath="src/ml/train/Dockerfile">`train/Dockerfile`</walkthrough-editor-open-file>: Executes the training script.
-- <walkthrough-editor-open-file filePath="src/ml/train/train.py">`train/train.py`</walkthrough-editor-open-file>: Downloads the data set from BigQuery, trains a machine learning model, and uploads the model to Cloud Storage.
+- <walkthrough-editor-open-file filePath="content/data/src/ml/train/Dockerfile">`train/Dockerfile`</walkthrough-editor-open-file>: Executes the training script.
+- <walkthrough-editor-open-file filePath="content/data/src/ml/train/train.py">`train/train.py`</walkthrough-editor-open-file>: Downloads the data set from BigQuery, trains a machine learning model, and uploads the model to Cloud Storage.
 
 The serving container image is comprised of the following files:
-- <walkthrough-editor-open-file filePath="src/ml/predict/Dockerfile">`predict/Dockerfile`</walkthrough-editor-open-file>: Executes the serving script to answer requests.
-- <walkthrough-editor-open-file filePath="src/ml/predict/predict.py">`predict/predict.py`</walkthrough-editor-open-file>: Downloads the model from Cloud Storage, loads it, and answers predictions on port `8080`.
+- <walkthrough-editor-open-file filePath="content/data/src/ml/predict/Dockerfile">`predict/Dockerfile`</walkthrough-editor-open-file>: Executes the serving script to answer requests.
+- <walkthrough-editor-open-file filePath="content/data/src/ml/predict/predict.py">`predict/predict.py`</walkthrough-editor-open-file>: Downloads the model from Cloud Storage, loads it, and answers predictions on port `8080`.
 
 We can create the container images using Cloud Build, which allows you to build a Docker image using just a Dockerfile. The next command builds the image in Cloud Build and pushes it to Artifact Registry:
 
 ```bash
-(cd src/ml/train && gcloud builds submit --region={{ REGION }} --tag={{ TRAIN_IMAGE_URI }} --quiet)
+(cd content/data/src/ml/train && gcloud builds submit --region={{ REGION }} --tag={{ TRAIN_IMAGE_URI }} --quiet)
 ```
 
 Let's do the same for the serving image:
 
 ```bash
-(cd src/ml/predict && gcloud builds submit --region={{ REGION }} --tag={{ PREDICT_IMAGE_URI }} --quiet)
+(cd content/data/src/ml/predict && gcloud builds submit --region={{ REGION }} --tag={{ PREDICT_IMAGE_URI }} --quiet)
 ```
 
 ### Vertex AI Pipelines
 
-Now, have a look at <walkthrough-editor-open-file filePath="src/ml/pipeline.py">`pipeline.py`</walkthrough-editor-open-file>. This script uses the Kubeflow domain specific language (dsl) to orchestrate the following machine learning workflow:
+Now, have a look at <walkthrough-editor-open-file filePath="content/data/src/ml/pipeline.py">`pipeline.py`</walkthrough-editor-open-file>. This script uses the Kubeflow domain specific language (dsl) to orchestrate the following machine learning workflow:
 
 1. `CustomTrainingJobOp` trains the model.
 2. `ModelUploadOp` uploads the trained model to the Vertex AI model registry.
@@ -50,7 +50,7 @@ Now, have a look at <walkthrough-editor-open-file filePath="src/ml/pipeline.py">
 Let's execute it:
 
 ```bash
-python src/ml/pipeline.py
+python content/data/src/ml/pipeline.py
 ```
 
 The pipeline run will take around 20 minutes to complete. While waiting, please read the introduction to [Vertex AI Pipelines](https://cloud.google.com/vertex-ai/docs/pipelines/introduction).
@@ -105,12 +105,12 @@ Feel free to explore the UI in more detail on your own!
 Now that the endpoint has been deployed, we can send transactions to it to assess whether they are fraudulent or not.
 We can use `curl` to send transactions to the endpoint. 
 
-Have a look at <walkthrough-editor-open-file filePath="src/ml/predict.sh">`predict.sh`</walkthrough-editor-open-file>. In line 9 it uses `curl` to call the endpoint using a data file named  <walkthrough-editor-open-file filePath="src/ml/instances.json">`instances.json`</walkthrough-editor-open-file> containing 3 transactions.
+Have a look at <walkthrough-editor-open-file filePath="content/data/src/ml/predict.sh">`predict.sh`</walkthrough-editor-open-file>. In line 9 it uses `curl` to call the endpoint using a data file named  <walkthrough-editor-open-file filePath="content/data/src/ml/instances.json">`instances.json`</walkthrough-editor-open-file> containing 3 transactions.
 
 Let's execute it:
 
 ```bash
-./src/ml/predict.sh
+content/data/src/ml/predict.sh
 ```
 
 The result should be a JSON object with a `prediction` key, containing the predictions for each of the 3 transactions. `1` means fraud and `0` means non-fraud.

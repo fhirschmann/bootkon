@@ -38,12 +38,12 @@ First, we need to enable some Google Cloud Platform (GCP) services. Enabling GCP
 
 Execute the following script:
 ```bash
-bk-bootstrap
+content/data/bk-bootstrap
 ```
 
 But what did it do? Let's ask Gemini while it is running.
 
-1. Open  <walkthrough-editor-open-file filePath=".scripts/bk-bootstrap">`bk-bootstrap`</walkthrough-editor-open-file>.
+1. Open  <walkthrough-editor-open-file filePath="content/data/bk-bootstrap">`bk-bootstrap`</walkthrough-editor-open-file>.
 2. Open Gemini Code Assist
 ![](../img/code_assist.png)
 

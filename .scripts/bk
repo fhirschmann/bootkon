@@ -16,12 +16,9 @@
 #     . bk <username/repo>
 #
 #   Skip workspace opening (add to ~/.bashrc above bk):
-#     export BK_NO_WORKSPACE_OPEN=1
 #
 # Environment variables:
-#   BK_REPO: GitHub repository (<username/repo>). Defaults to fhirschmann/bootkon.
-#   BK_TUTORIAL: Path to tutorial markdown (relative to repo root). Defaults to .TUTORIAL.md.
-#   BK_NO_WORKSPACE_OPEN: Prevents workspace auto-opening.
+#   BK_REPO: GitHub repository (<username/repo>).
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -59,11 +56,14 @@ else
     echo -e "Setting BK_REPO to $BK_REPO based on first argument to this script."
 fi
 
+if [ -z $BK_STREAM ]; then
+    err 'Variable BK_STREAM is not set. Please set it to the stream you want to start'
+fi
+
 export BK_GITHUB_USERNAME=$(echo $BK_REPO | cut -d/ -f1) # first part of fhirschmann/bootkon
 export BK_GITHUB_REPOSITORY=$(echo $BK_REPO | cut -d/ -f2) # second part of fhirschmann/bootkon
 export BK_REPO_URL="https://github.com/${BK_REPO}.git"
-export BK_TUTORIAL="${BK_TUTORIAL:-docs/TUTORIAL.md}" # defaults to .TUTORIAL.md; can be overwritten
-export BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
+export BK_STREAM="${BK_STREAM}"
 export BK_DIR=~/${BK_GITHUB_REPOSITORY}
 export BK_INITIALIZED=1
 
@@ -77,7 +77,8 @@ fi
 if [ -d $BK_GITHUB_REPOSITORY ]; then
     echo -e "${GREEN}Not cloning $BK_REPO_URL because folder ~/$BK_GITHUB_REPOSITORY already exists.${NC}"
 else
-    echo -e "Cloning $BK_REPO_URL into $BK_GITHUB_REPOSITORY..."
+    BK_BRANCH="${BK_BRANCH:-main}" # defaults to main; can be overwritten
+    echo -e "Cloning branch $BK_BRANCH from $BK_REPO_URL into $BK_GITHUB_REPOSITORY..."
     git clone --branch "$BK_BRANCH" https://github.com/${BK_REPO}.git
 fi
 
@@ -141,18 +142,47 @@ if grep -q '^export BK_REPO=' ~/.bashrc; then
         sed -i "s|^export BK_REPO=.*|$line|" ~/.bashrc
         echo "Updated the existing BK_REPO line in ~/.bashrc."
     fi
-    echo -e "Bootkon is automatically loaded in Cloud Shell. To deactivate, type ${RED}bk-deactivate${NC}."
 else
     echo "Adding BK_REPO to .bashrc"
     echo "$line" >> ~/.bashrc
 fi
 
+## Set or update $BK_STREAM in ~/.bashrc
+line="export BK_STREAM=${BK_STREAM}"
+if grep -q '^export BK_STREAM=' ~/.bashrc; then
+    # If the line exists but differs, update it
+    if ! grep -Fxq "$line" ~/.bashrc; then
+        sed -i "s|^export BK_STREAM=.*|$line|" ~/.bashrc
+        echo "Updated the existing BK_STREAM line in ~/.bashrc."
+    fi
+else
+    echo "Adding BK_STREAM=$BK_STREAM to .bashrc"
+    echo "$line" >> ~/.bashrc
+fi
+
+
+## Set or update $BK_BRANCH in ~/.bashrc
+export BK_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+line="export BK_BRANCH=${BK_BRANCH}"
+if grep -q '^export BK_BRANCH=' ~/.bashrc; then
+    # If the line exists but differs, update it
+    if ! grep -Fxq "$line" ~/.bashrc; then
+        sed -i "s|^export BK_BRANCH=.*|$line|" ~/.bashrc
+        echo "Updated the existing BK_BRANCH line in ~/.bashrc."
+    fi
+else
+    echo "Adding BK_BRANCH=$BK_BRANCH to .bashrc"
+    echo "$line" >> ~/.bashrc
+fi
+
+unset line
+
 echo
-echo -e "         __                 --------------------------------------------------------"
-echo -e " _(\    |${RED}@@${NC}|                |                                                      |"
-echo -e "(__/\__ \--/ __             |          \e[34mW\e[31me\e[33ml\e[32mc\e[34mo\e[31mm\e[33me \e[32mt\e[34mo \e[31mt\e[33mh\e[32me \e[34mD\e[31ma\e[33mt\e[32ma \e[34m& \e[31mA\e[33mI \e[32mB\e[34mo\e[31mo\e[33mt\e[32mk\e[34mo\e[31mn\e[0m!           |"
-echo -e "   \___|----|  |   __       |                                                      |"
-echo -e "       \ }{ /\ )_ / _\      --------------------------------------------------------"
+echo -e "         __                 ---------------------------------------"
+echo -e " _(\    |${RED}@@${NC}|                |                                     |"
+echo -e "(__/\__ \--/ __             |          \e[34mW\e[31me\e[33ml\e[32mc\e[34mo\e[31mm\e[33me \e[32mt\e[34mo \e[32mB\e[34mo\e[31mo\e[33mt\e[32mk\e[34mo\e[31mn\e[0m!        |"
+echo -e "   \___|----|  |   __       |                                     |"
+echo -e "       \ }{ /\ )_ / _\      ---------------------------------------"
 echo -e "       /\__/\ \__O (__"
 echo -e "      (--/\--)    \__/      To start Data & AI Bootkon, type ${GREEN}\e[1mbk-start\e[0m${NC}."
 echo -e "      _)(  )(_              This will open the tutorial and IDE workspace."

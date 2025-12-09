@@ -1,8 +1,0 @@
-#!/bin/bash
-# Pulls the newest version from GitHub and forcibly applies stashed changes.
-# THIS SCRIPT IS ONLY INTENDED FOR PARTICIPANTS DURING LIVE EVENTS.
-
-cd $BK_DIR
-git stash
-git pull --rebase
-git stash show -p | git apply && git stash drop

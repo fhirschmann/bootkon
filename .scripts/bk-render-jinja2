@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# mdBook preprocessor to render markdown using the jinja2 template engine
+# preprocessor to render markdown using the jinja2 template engine
 # author: Fabian Hirschmann
 
 import json
@@ -11,105 +11,41 @@ from functools import partial
 
 import jinja2
 
+BK_BRANCH = os.environ.get("BK_BRANCH", "main")
+BK_STREAM = os.environ.get("BK_STREAM")
+
 # When this runs through GitHub actions, we use $GITHUB_REPOSITORY, otherwise $BK_REPO.
 BK_REPO=os.environ.get("GITHUB_REPOSITORY")
 if not BK_REPO:
     BK_REPO=os.environ.get("BK_REPO")
 
-
-def apply_to_content(data, func):
-    """
-    Recursively apply a function to the value of the key 'content' in a nested dictionary or list.
-
-    :param data: The dictionary or list to process.
-    :param func: The function to apply to 'content' values.
-    :return: The modified dictionary or list.
-    """
-    if isinstance(data, dict):
-        # Check if the key 'content' exists, and apply the function to its value.
-        if "content" in data:
-            data["content"] = func(data["content"])
-        # Recursively apply the function to nested dictionaries or lists.
-        for key, value in data.items():
-            apply_to_content(value, func)
-    elif isinstance(data, list):
-        # Recursively apply the function to each item in the list.
-        for item in data:
-            apply_to_content(item, func)
-    return data
-
-
-def render_jupyter(path):
-    import nbformat
-    from nbconvert import HTMLExporter, MarkdownExporter
-
-    with open(path) as f:
-        nb = nbformat.read(f, as_version=4)
-        exporter = HTMLExporter()
-        exporter = MarkdownExporter()
-        body, resource = exporter.from_notebook_node(nb)
-        with open("test.md", "w") as f:
-            f.write(body)
-        for k, v in resource["outputs"].items():
-            if k.endswith(".png"):
-                enc = base64.b64encode(v).decode()
-                body = body.replace(
-                    f"![png]({k})",
-                    f'<img src="data:image/png;base64,{enc}" />'
-                )
-
-        return body
     
-def render_author(name, url, mdbook_view):
-    if mdbook_view:
-        name = name.replace(" ", "_")
-        return f'<a href="{url}" target="_blank"><img src="https://img.shields.io/badge/author-{name}-blue"></a>'
-    else:
-        return f'Author: <a href="{url}">{name}</a>'
+def render_author(name, url):
+    return f'Author: <a href="{url}">{name}</a>'
 
-
-def render_mdbook(content):
-    environment = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath="docs"))
-    template = environment.from_string(content)
-
-    rendered = template.render(
-        BK_REPO=BK_REPO,
-        MDBOOK_VIEW=True,
-        ON_ARGOLIS=False,
-        PROJECT_ID="<PROJECT_ID>",
-        PROJECT_NUMBER="<PROJECT_NUMBER>",
-        REGION="us-central1",
-        GCP_USERNAME="<GCP_USERNAME>",
-        jupyter=render_jupyter,
-        author=partial(render_author, mdbook_view=True),
-    )
-
-    return rendered
 
 def render_tutorial(content):
-    environment = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath="docs"))
+    environment = jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath="content"))
     template = environment.from_string(content)
 
     rendered = template.render(
-        MDBOOK_VIEW=False,
         ON_ARGOLIS=(os.getenv("GCP_USERNAME") or "").endswith("altostrat.com"),
         PROJECT_ID=os.getenv("PROJECT_ID"),
         PROJECT_NUMBER=os.getenv("PROJECT_NUMBER"),
         REGION=os.getenv("REGION"),
         MY_NAME=os.getenv("MY_NAME"),
         GCP_USERNAME=os.getenv("GCP_USERNAME"),
-        author=partial(render_author, mdbook_view=False),
+        author=partial(render_author),
     )
 
-        # Links in the handbook need to be fixed to work in the tutorial
     rendered = re.sub(
         r'!\[(.*?)\]\(../img/(.*?)\)',
-        rf'![\1](https://github.com/{BK_REPO}/blob/main/docs/img/\2?raw=true)',
+        rf'![\1](https://github.com/{BK_REPO}/blob/{BK_BRANCH}/content/{BK_STREAM}/img/\2?raw=true)',
         rendered
     )
     rendered = re.sub(
         r'<img\s+src\s*=\s*["\']\.\./img/(.*?)["\']',
-        rf'<img src="https://github.com/{BK_REPO}/blob/main/docs/img/\1?raw=true"',
+        rf'<img src="https://github.com/{BK_REPO}/blob/{BK_BRANCH}/content/{BK_STREAM}/img/\1?raw=true"',
         rendered
     )
 
@@ -117,22 +53,7 @@ def render_tutorial(content):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1: # we check if we received any argument
-        if sys.argv[1] == "supports": 
-            # then we are good to return an exit status code of 0, since the other argument will just be the renderer's name
-            sys.exit(0)
-
-    if sys.stdin.isatty():
-        with open(sys.argv[1]) as in_md:
-            with open(sys.argv[2], "w") as out_md:
-                rendered = render_tutorial(in_md.read())
-                out_md.write(rendered)
-
-            sys.exit(0)
-
-    # load both the context and the book representations from stdin
-    context, book = json.load(sys.stdin)
-    apply_to_content(book, render_mdbook)
-
-    # we are done with the book's modification, we can just print it to stdout.
-    print(json.dumps(book))
+    with open(sys.argv[1]) as in_md:
+        with open(sys.argv[2], "w") as out_md:
+            rendered = render_tutorial(in_md.read())
+            out_md.write(rendered)

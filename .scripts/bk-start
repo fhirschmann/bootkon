@@ -9,5 +9,5 @@ if [ -z "$BK_INITIALIZED" ]; then
     exit 1
 fi
 
-bk-tutorial $BK_TUTORIAL
+bk-tutorial content/${BK_STREAM}/TUTORIAL.md
 cloudshell open-workspace .
