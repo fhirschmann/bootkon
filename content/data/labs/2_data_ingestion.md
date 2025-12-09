@@ -135,12 +135,12 @@ The data you are querying still resides on Cloud Storage and there are no copies
 
 Pub/Sub enables real-time streaming into BigQuery. Learn more about [Pub/Sub integrations with BigQuery](https://cloud.google.com/pubsub/docs/bigquery).
 
-We create an empty table and then stream data into it. For this to work, we need to specify a schema. Have a look at <walkthrough-editor-open-file filePath="src/data_ingestion/fraud_detection_bigquery_schema.json">`fraud_detection_bigquery_schema.json`</walkthrough-editor-open-file>. This is the schema we are going to use.
+We create an empty table and then stream data into it. For this to work, we need to specify a schema. Have a look at <walkthrough-editor-open-file filePath="content/data/src/data_ingestion/fraud_detection_bigquery_schema.json">`fraud_detection_bigquery_schema.json`</walkthrough-editor-open-file>. This is the schema we are going to use.
 
 Create an empty table using this schema. We will use it to stream data into it:
 ```bash
 bq --location=us mk --table \
-{{ PROJECT_ID }}:ml_datasets.ulb_fraud_detection_pubsub src/data_ingestion/fraud_detection_bigquery_schema.json
+{{ PROJECT_ID }}:ml_datasets.ulb_fraud_detection_pubsub content/data/src/data_ingestion/fraud_detection_bigquery_schema.json
 ```
 
 We also need to create a Pub/Sub schema. We use Apache Avro, as it is better suited for appending row-wise:
@@ -148,7 +148,7 @@ We also need to create a Pub/Sub schema. We use Apache Avro, as it is better sui
 gcloud pubsub schemas create fraud-detection-schema \
     --project=$PROJECT_ID  \
     --type=AVRO \
-    --definition-file=src/data_ingestion/fraud_detection_pubsub_schema.json
+    --definition-file=content/data/src/data_ingestion/fraud_detection_pubsub_schema.json
 ```
 
 And then create a Pub/Sub topic using this schema:
@@ -188,11 +188,11 @@ Examine it in the console:
 2. Click <walkthrough-spotlight-pointer locator="text('fraud-detection-subscription')">fraud-detection-subscription</walkthrough-spotlight-pointer>. Here you can see messages as they arrive.
 3. Click <walkthrough-spotlight-pointer locator="text('projects/{{ PROJECT_ID }}/topics/fraud-detection-topic')">fraud-detection-topic</walkthrough-spotlight-pointer>. This is the topic you will be publishing messages to.
 
-Please have a look at <walkthrough-editor-open-file filePath="src/data_ingestion/import_csv_to_bigquery_1.py">`import_csv_to_bigquery_1.py`</walkthrough-editor-open-file>. This script loads CSV files from Cloud Storage, parses it in Python, and sends it to Pub/Sub - row by row.
+Please have a look at <walkthrough-editor-open-file filePath="content/data/src/data_ingestion/import_csv_to_bigquery_1.py">`import_csv_to_bigquery_1.py`</walkthrough-editor-open-file>. This script loads CSV files from Cloud Storage, parses it in Python, and sends it to Pub/Sub - row by row.
 
 Let's execute it.
 ```bash
-./src/data_ingestion/import_csv_to_bigquery_1.py
+./content/data/src/data_ingestion/import_csv_to_bigquery_1.py
 ```
 
 Each line you see on the screen corresponds to one transaction being sent to Pub/Sub and written to BigQuery. It would take approximately 40 to 60 minutes for it to finish. So, please cancel the command using ``CTRL + C``.
@@ -227,7 +227,7 @@ Next, have a look at <walkthrough-editor-open-file filePath="src/data_ingestion/
 Create an empty BigQuery table:
 ```bash
 bq --location=us mk --table \
-{{ PROJECT_ID }}:ml_datasets.ulb_fraud_detection_dataproc src/data_ingestion/fraud_detection_bigquery_schema.json
+{{ PROJECT_ID }}:ml_datasets.ulb_fraud_detection_dataproc content/data/src/data_ingestion/fraud_detection_bigquery_schema.json
 ```
 
 Download the Spark connector for BigQuery and copy it to our bucket:
@@ -236,7 +236,7 @@ wget -qN https://github.com/GoogleCloudDataproc/spark-bigquery-connector/release
 gsutil cp spark-3.3-bigquery-0.37.0.jar gs://${PROJECT_ID}-bucket/jar/spark-3.3-bigquery-0.37.0.jar
 ```
 
-Open <walkthrough-editor-select-line filePath="src/data_ingestion/import_parquet_to_bigquery.py" startLine="4" endLine="4" startCharacterOffset="14" endCharacterOffset="31">import_parquet_to_bigquery.py</walkthrough-editor-select-line> in the Cloud Shell editor and replace the project id with your project id `{{ PROJECT_ID }}`. Don't forget to save.
+Open <walkthrough-editor-select-line filePath="content/data/src/data_ingestion/import_parquet_to_bigquery.py" startLine="4" endLine="4" startCharacterOffset="14" endCharacterOffset="31">import_parquet_to_bigquery.py</walkthrough-editor-select-line> in the Cloud Shell editor and replace the project id with your project id `{{ PROJECT_ID }}`. Don't forget to save.
 
 {% if ON_ARGOLIS %}
 ❗ You are on Argolis. The next command requires to disable the 
@@ -245,7 +245,7 @@ Open <walkthrough-editor-select-line filePath="src/data_ingestion/import_parquet
 
 Execute it:
 ```bash
-gcloud dataproc batches submit pyspark src/data_ingestion/import_parquet_to_bigquery.py \
+gcloud dataproc batches submit pyspark content/data/src/data_ingestion/import_parquet_to_bigquery.py \
     --project=$PROJECT_ID \
     --region=$REGION \
     --deps-bucket=gs://${PROJECT_ID}-bucket
