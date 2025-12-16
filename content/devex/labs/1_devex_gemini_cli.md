@@ -1,11 +1,6 @@
 # Accelerating Development with Gemini CLI
 
-
-
-
 ## Overview
-
-
 
 This lab focuses on utilizing Gemini CLI, an open-source AI-powered agent in Google Cloud. You will learn to use Gemini CLI for various tasks, including understanding existing codebases, generating documentation and unit tests, refactoring both UI and backend components of a Python web application.
 
@@ -19,10 +14,7 @@ In this lab, you will learn how to do the following:
 
 * This lab assumes familiarity with the Cloud Console and Cloud Shell environments. 
 
-
 ## Setup and Requirements
-
-
 
 ### Cloud Project setup
 
@@ -41,22 +33,14 @@ In this lab, you will learn how to do the following:
 > aside negative
 > 
 > **Caution:** A project ID is globally unique and can't be used by anyone else after you've selected it. You are the only user of that ID. Even if a project is deleted, the ID can't be used again
-
 > aside positive
 > 
 > **Note:** If you use a Gmail account, you can leave the default location set to **No organization**. If you use a Google Workspace account, choose a location that makes sense for your organization.
-
 2. Next, you'll need to  [enable billing](https://console.cloud.google.com/billing) in the Cloud Console to use Cloud resources/APIs. Running through this codelab won't cost much, if anything at all. To shut down resources to avoid incurring billing beyond this tutorial, you can delete the resources you created or delete the project. New Google Cloud users are eligible for the  [$300 USD Free Trial](http://cloud.google.com/free) program.
 
 ### Environment Setup
 
-Open Gemini chat.
-
-<img src="../img/bc3c899ac8bcf488.png" alt="bc3c899ac8bcf488.png"  width="337.50" />
-
-Or type "Ask Gemini" in the search bar.
-
-<img src="../img/e1e9ad314691368a.png" alt="e1e9ad314691368a.png"  width="624.00" />
+Go to [Gemini](https://console.cloud.google.com/gemini?referrer=search&project={{ PROJECT_ID }})
 
 Enable Gemini for Google Cloud API:
 
@@ -127,38 +111,14 @@ The Google Gemini web app (gemini.google.com) is a web-based tool designed to he
 ## Download and examine the application
 
 
+Run the commands below to clone the Git repository locally using the *copy to cloud shell* button above the following command chunk.
 
-Activate Cloud Shell by clicking on the icon to the right of the search bar.
-
-<img src="../img/3e0c761ca41f315e.png" alt="3e0c761ca41f315e.png"  width="624.00" />
-
- If prompted to authorize, click "Authorize" to continue.
-
-<img src="../img/6356559df3eccdda.png" alt="6356559df3eccdda.png"  width="429.00" />
-
-In the terminal, run the commands below to clone the Git repository locally.
-
-```
+```bash
 git clone https://github.com/kbhattac/calendar-app-lab
 cd calendar-app-lab
 ```
-
-Start "Cloud Shell Editor".
-
-<img src="../img/18ca8f879206a382.png" alt="18ca8f879206a382.png"  width="418.50" />
-
-Open the "`calendar-app-lab`" folder.
-
-<img src="../img/7cef847802b51038.png" alt="7cef847802b51038.png"  width="624.00" />
-
-Start a new terminal in the Cloud Shell Editor.
-
-<img src="../img/3336bea9c0e999b9.png" alt="3336bea9c0e999b9.png"  width="624.00" />
-
-Your environment should look similar to the screenshot below.
-
-<img src="../img/ae9475871b7d28a6.png" alt="ae9475871b7d28a6.png"  width="624.00" />
-
+Then, open <walkthrough-editor-open-file filePath="calendar-app-lab/main.py">main.py
+</walkthrough-editor-open-file> you just cloned.
 
 ## Gemini CLI Introduction
 
@@ -170,19 +130,19 @@ This step, to set the environment variable, is not required for the Qwiklabs env
 
 In your local environment, if you are using a paid Code Assist License from your organization, remember to set the Google Cloud Project in your terminal.  [More details](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#option-1-login-with-google-oauth-login-using-your-google-account).
 
-```
+```bash
 export GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_NAME"
 ```
 
 Check that you are in the root of the project folder:
 
-```
-cd ~/calendar-app-lab
+```bash
+cd ~/bootkon/calendar-app-lab
 ```
 
 Start Gemini CLI in the terminal window:
 
-```
+```bash
 gemini
 ```
 
@@ -227,7 +187,7 @@ You can use the Gemini CLI to quickly gain codebase understanding by asking it t
 
 To learn more about the codebase, send the following prompt in the Gemini CLI:
 
-```
+```bash
 Don't suggest any changes. Explain this codebase to me.
 ```
 
@@ -244,7 +204,7 @@ The Gemini CLI can significantly simplify running your Python application locall
 
 To launch the application locally, enter the following prompt in the Gemini CLI terminal:
 
-```
+```bash
 Run this app locally
 ```
 
@@ -271,7 +231,7 @@ The Gemini CLI is effective for documentation and commenting by allowing you to 
 
 To add comments to every Python file in the application, use the Gemini CLI terminal and enter the following prompt:
 
-```
+```bash
 Add docstrings to all files
 ```
 
@@ -281,7 +241,7 @@ Approve the changes that have been suggested. If IDE integration is enabled, you
 
 Update the `.gitignore` file with the following prompt:
 
-```
+```bash
 update .gitignore and add __pycache__ folder
 ```
 
@@ -298,7 +258,7 @@ The Gemini CLI is excellent for writing unit tests by enabling developers to gen
 
 Using the prompt below, to generate unit tests:
 
-```
+```bash
 Generate unit tests for @calendar.py
 ```
 
@@ -319,7 +279,7 @@ The Gemini CLI can assist in checking for bugs in the logic by enabling you to p
 
 To check for any bugs in conversion logic, send the following prompt in Gemini CLI:
 
-```
+```bash
 Are there any bugs in the conversion logic? Check if negative numbers are handled properly.
 ```
 
@@ -336,7 +296,7 @@ The Gemini CLI can significantly aid in UI refactoring by helping you translate 
 
 Refactor the UI using the Bootstrap library by submitting the following prompt to the Gemini CLI:
 
-```
+```bash
 Refactor UI to use Bootstrap library
 ```
 
@@ -346,7 +306,7 @@ Review and accept the changes:
 
 To begin, launch the application. If it's already running, simply reload the page.
 
-```
+```bash
 python3 main.py
 ```
 
@@ -358,7 +318,7 @@ Reload the page  and check the changes.
 
 Implement error handling to ensure an error page is displayed when issues arise.
 
-```
+```bash
 Implement error handling to display an error page when issues occur.
 ```
 
@@ -377,7 +337,7 @@ The Gemini CLI is effective for backend refactoring by assisting in the migratio
 
 Modify the backend to save conversion requests in memory.
 
-```
+```bash
 Store requests in memory and create a page to display conversion history. Add links on all pages to view the history.
 ```
 
@@ -395,7 +355,7 @@ Review the history of conversion requests.
 
 To update the README.md file with the current codebase state, send this prompt via Gemini CLI:
 
-```
+```bash
 analyze README.md file and update it with latest codebase state
 ```
 
@@ -410,7 +370,7 @@ The Gemini CLI includes built-in tools that the Gemini model uses to interact wi
 
 Send this prompt in Gemini CLI to view the available tools:
 
-```
+```bash
 /tools
 ```
 
@@ -429,7 +389,7 @@ The Gemini CLI includes a command to analyze the project and create a tailored G
 
 To generate the **GEMINI.md** file, send the following prompt using the Gemini CLI:
 
-```
+```bash
 /init
 ```
 
@@ -452,7 +412,7 @@ Send this prompt in Gemini CLI to generate a request flow diagram in Mermaid for
 
 Accept tools calls, like creating a folder and saving a file.
 
-```
+```bash
 /diagram:new request flow for this app
 ```
 
@@ -476,7 +436,7 @@ Send this prompt in Gemini CLI to generate a deck with key points in Marp format
 
 Accept tools calls, like creating a folder and saving a file.
 
-```
+```bash
 /deck:new key points and details for this app
 ```
 
@@ -500,7 +460,7 @@ Send this prompt in Gemini CLI to refactor UI.
 
 Accept tools calls, like creating a folder and saving a file.
 
-```
+```bash
 /plan:new refactor UI to use Materialize CSS
 ```
 
@@ -533,7 +493,7 @@ When running Gemini CLI in a non-interactive mode within a CI/CD pipeline, you c
 
 Open a new terminal or close the existing Gemini CLI session and run this command.
 
-```
+```bash
 gemini -p "Explain the architecture of this codebase"
 ```
 
@@ -541,7 +501,7 @@ Review the output.
 
 If your task will require approval of tools, you could enable YOLO mode with the `-y` flag.
 
-```
+```bash
 gemini -p "Explain the architecture of this codebase and save the file in the markdown format in the docs folder" -y
 ```
 
@@ -556,7 +516,7 @@ By leveraging Gemini CLI in non-interactive mode, you can significantly enhance 
 
 While LLMs handle complex tasks, direct commands are more efficient for straightforward actions. The `! prefix` allows seamless switching between AI and traditional command-line interfaces.
 
-```
+```bash
 !ls
 ```
 
@@ -571,7 +531,7 @@ Gemini CLI, through the Model Context Protocol (MCP), can integrate with third-p
 
 Run this command in the terminal to create the configuration file or use shell mode.
 
-```
+```bash
 echo '{
     "mcpServers": {
         "context7": {
@@ -583,13 +543,13 @@ echo '{
 
 Start Gemini CLI session:
 
-```
+```bash
 gemini
 ```
 
 Verify configured MCP servers:
 
-```
+```bash
 /mcp
 ```
 
@@ -599,7 +559,7 @@ Review the output
 
 Send the prompt to test configured MCP server:
 
-```
+```bash
 use context7 tools to look up how to implement flex grid in react mui library 
 ```
 
@@ -614,7 +574,7 @@ Approve the tools and review the output.
 
 You can configure multiple MCP servers in your local environment using the following config.
 
-```
+```bash
 {
     "mcpServers": {
         "Snyk Security Scanner": {
