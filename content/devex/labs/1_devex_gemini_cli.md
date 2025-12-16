@@ -16,6 +16,28 @@ In this lab, you will learn how to do the following:
 
 ## Setup and Requirements
 
+### Cloud Project setup
+
+1. Sign-in to the  [Google Cloud Console](http://console.cloud.google.com) and create a new project or reuse an existing one. If you don't already have a Gmail or Google Workspace account, you must  [create one](https://accounts.google.com/SignUp).
+
+<img src="../img/fbef9caa1602edd0.png" alt="fbef9caa1602edd0.png"  width="328.00" />
+
+<img src="../img/a99b7ace416376c4.png" alt="a99b7ace416376c4.png"  width="401.24" />
+
+<img src="../img/5e3ff691252acf41.png" alt="5e3ff691252acf41.png"  width="466.00" />
+
+* The **Project name** is the display name for this project's participants. It is a character string not used by Google APIs. You can always update it.
+* The **Project ID** is unique across all Google Cloud projects and is immutable (cannot be changed after it has been set). The Cloud Console auto-generates a unique string; usually you don't care what it is. In most codelabs, you'll need to reference your Project ID (typically identified as `PROJECT_ID`). If you don't like the generated ID, you might generate another random one. Alternatively, you can try your own, and see if it's available. It can't be changed after this step and remains for the duration of the project.
+* For your information, there is a third value, a **Project Number**, which some APIs use. Learn more about all three of these values in the  [documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects#before_you_begin).
+
+> aside negative
+> 
+> **Caution:** A project ID is globally unique and can't be used by anyone else after you've selected it. You are the only user of that ID. Even if a project is deleted, the ID can't be used again
+> aside positive
+> 
+> **Note:** If you use a Gmail account, you can leave the default location set to **No organization**. If you use a Google Workspace account, choose a location that makes sense for your organization.
+2. Next, you'll need to  [enable billing](https://console.cloud.google.com/billing) in the Cloud Console to use Cloud resources/APIs. Running through this codelab won't cost much, if anything at all. To shut down resources to avoid incurring billing beyond this tutorial, you can delete the resources you created or delete the project. New Google Cloud users are eligible for the  [$300 USD Free Trial](http://cloud.google.com/free) program.
+
 ### Environment Setup
 
 Go to [Gemini](https://console.cloud.google.com/gemini?referrer=search&project={{ PROJECT_ID }})
@@ -95,7 +117,7 @@ Run the commands below to clone the Git repository locally using the *copy to cl
 git clone https://github.com/kbhattac/calendar-app-lab
 cd calendar-app-lab
 ```
-Have a look at <walkthrough-editor-open-file filePath="calendar-app-lab/main.py">main.py
+Then, open <walkthrough-editor-open-file filePath="calendar-app-lab/main.py">main.py
 </walkthrough-editor-open-file> you just cloned.
 
 ## Gemini CLI Introduction
@@ -103,6 +125,14 @@ Have a look at <walkthrough-editor-open-file filePath="calendar-app-lab/main.py"
 
 
 [Gemini CLI](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#gemini-cli) is an open-source AI agent that integrates with Google Cloud's Gemini models. It allows developers to perform various tasks directly from their terminal, such as understanding codebases, generating documentation and unit tests, and refactoring code. The key benefit of Gemini CLI is its ability to streamline development workflows by bringing the power of generative AI directly into the developer's command-line environment, reducing context switching and enhancing productivity.
+
+This step, to set the environment variable, is not required for the Qwiklabs environment. Continue with the next step.
+
+In your local environment, if you are using a paid Code Assist License from your organization, remember to set the Google Cloud Project in your terminal.  [More details](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#option-1-login-with-google-oauth-login-using-your-google-account).
+
+```bash
+export GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_NAME"
+```
 
 Check that you are in the root of the project folder:
 
