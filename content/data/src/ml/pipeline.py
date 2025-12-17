@@ -77,7 +77,7 @@ def pipeline(
         display_name="bootkon-endpoint",
     )
 
-    ModelDeployOp(
+    model_deploy_op = ModelDeployOp(
         endpoint=endpoint_create_op.outputs["endpoint"],
         model=model_upload_op.outputs["model"],
         deployed_model_display_name="bootkon-endpoint",
@@ -85,6 +85,7 @@ def pipeline(
         dedicated_resources_min_replica_count=1,
         dedicated_resources_max_replica_count=1
     )
+    model_deploy_op.after(endpoint_create_op)
 
 
 compiler.Compiler().compile(

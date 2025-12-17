@@ -43,11 +43,12 @@ echo $CONN_SERVICE_ACCOUNT
 ```
 
 Let's double check the service account.
-
+<walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node astute-ace-336608'} {button 'Toggle node'})"></walkthrough-spotlight-pointer>
 1. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery).
-2. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem '{{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
-3. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem 'External connections'} {button 'Toggle node'})">External connections</walkthrough-spotlight-pointer>
-4. Click ``us.fraud-transactions-conn``.
+2. Click <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
+3. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node {{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
+4. Click <walkthrough-spotlight-pointer locator="css(span[id$=ProjectTreeDatasource-{{ PROJECT_ID }}-bucket-connection])">Connections</walkthrough-spotlight-pointer>
+5. Click <walkthrough-spotlight-pointer locator="semantic({button 'fraud-transactions-conn'})">fraud-transactions-conn</walkthrough-spotlight-pointer>
 
 Is the service account equivalent to the one you got from the command line?
 
@@ -62,10 +63,11 @@ gcloud storage buckets add-iam-policy-binding gs://{{ PROJECT_ID }}-bucket \
 Let's create a data set that contains the table and the external connection to Cloud Storage.
 
 1. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery)
-2. Click the three <walkthrough-spotlight-pointer locator="semantic({treeitem '{{ PROJECT_ID }}'} {button})">vertical dots ⋮</walkthrough-spotlight-pointer> next to `{{ PROJECT_ID }}` in the navigation menu
-3. Click <walkthrough-spotlight-pointer locator="semantic({menuitem 'Create dataset'})">Create dataset</walkthrough-spotlight-pointer>
-4. Enter `ml_datasets` (plural) in the ID field. Region should be multi-region US.
-5. Click <walkthrough-spotlight-pointer locator="semantic({button 'Create dataset'})">Create dataset</walkthrough-spotlight-pointer>
+2. Choose <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
+3. Hover your mouse over <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node {{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
+4. Click the three vertical dots (⋮) and go to `Create dataset`
+5. Enter `ml_datasets` (plural) in the ID field. Region should be multi-region US.
+6. Click `Create dataset`
 
 Alternatively, you can create the data set on the command line:
 ```bash
@@ -73,10 +75,11 @@ bq --location=us mk -d ml_datasets
 ```
 
 Next, we connect the data in Cloud Storage to BigQuery:
-1. Click <walkthrough-spotlight-pointer locator="spotlight(bigquery-add-data)">+ Add data</walkthrough-spotlight-pointer>
-2. Click <walkthrough-spotlight-pointer locator="semantic({button 'Google Cloud Storage'})">Google Cloud Storage</walkthrough-spotlight-pointer>
-3. Select `Load to BigQuery`
-4. Enter the following details:
+1. Choose <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
+2. Click <walkthrough-spotlight-pointer locator="spotlight(bigquery-add-data)">+ Add data</walkthrough-spotlight-pointer>
+3. Click <walkthrough-spotlight-pointer locator="semantic({button 'Google Cloud Storage'})">Google Cloud Storage</walkthrough-spotlight-pointer>
+4. Select `Load to BigQuery`
+5. Enter the following details:
 - Create table from: `Google Cloud Storage`
 - Select file: `{{ PROJECT_ID }}-bucket/data/parquet/ulb_fraud_detection/*`
 - File format: `Parquet`
@@ -87,7 +90,7 @@ Next, we connect the data in Cloud Storage to BigQuery:
 - Check *Create a BigLake table using a Cloud Resource connection*
 - Connection ID: Select `us.fraud-transactions-conn`
 - Schema: `Auto detect`
-5. Click on <walkthrough-spotlight-pointer locator="semantic({button 'Create table'})">Create table</walkthrough-spotlight-pointer>
+6. Click on <walkthrough-spotlight-pointer locator="semantic({button 'Create table'})">Create table</walkthrough-spotlight-pointer>
 
 Alternatively, you can also use the command line to create the table:
 
@@ -99,17 +102,19 @@ bq mk --table \
 
 Let's have a look at the data set:
 1. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery)
-2. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem '{{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
-3. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem 'ml_datasets'} {button 'Toggle node'})">ml_datasets</walkthrough-spotlight-pointer>
-4. Click <walkthrough-spotlight-pointer locator="semantic({treeitem 'ulb_fraud_detection_biglake'})">``ulb_fraud_detection_biglake``</walkthrough-spotlight-pointer>
-5. Click <walkthrough-spotlight-pointer locator="text('DETAILS')">DETAILS</walkthrough-spotlight-pointer> 
+2. Choose <walkthrough-spotlight-pointer locator="semantic({tab 'Explorer'})">Explorer</walkthrough-spotlight-pointer>
+3. Expand <walkthrough-spotlight-pointer locator="semantic({treeitem 'Toggle node {{ PROJECT_ID }}'} {button 'Toggle node'})">{{ PROJECT_ID }}</walkthrough-spotlight-pointer>
+4. Click <walkthrough-spotlight-pointer locator="css(span[id$=ProjectTreeDatasource-{{ PROJECT_ID }}-bucket-dataset])">Datasets</walkthrough-spotlight-pointer>
+5. Click <walkthrough-spotlight-pointer locator="semantic({button 'ml_datasets'})">ml_datasets</walkthrough-spotlight-pointer>
+6. Click <walkthrough-spotlight-pointer locator="semantic({gridcell 'ulb_fraud_detection_biglake'})">ulb_fraud_detection_biglake</walkthrough-spotlight-pointer>
+7. Click <walkthrough-spotlight-pointer locator="text('DETAILS')">Details</walkthrough-spotlight-pointer> 
 
 Have a look at the external data configuration. You can see the Cloud Storage bucket (`gs://...`) your data
 lives in.
 
 Let's query it:
 
-1. Click <walkthrough-spotlight-pointer locator="text('QUERY')">QUERY</walkthrough-spotlight-pointer>
+1. Click <walkthrough-spotlight-pointer locator="text('QUERY')">Query</walkthrough-spotlight-pointer>
 2. Insert the following SQL query.
 
 ```sql
@@ -130,12 +135,12 @@ The data you are querying still resides on Cloud Storage and there are no copies
 
 Pub/Sub enables real-time streaming into BigQuery. Learn more about [Pub/Sub integrations with BigQuery](https://cloud.google.com/pubsub/docs/bigquery).
 
-We create an empty table and then stream data into it. For this to work, we need to specify a schema. Have a look at <walkthrough-editor-open-file filePath="src/data_ingestion/fraud_detection_bigquery_schema.json">`fraud_detection_bigquery_schema.json`</walkthrough-editor-open-file>. This is the schema we are going to use.
+We create an empty table and then stream data into it. For this to work, we need to specify a schema. Have a look at <walkthrough-editor-open-file filePath="content/data/src/data_ingestion/fraud_detection_bigquery_schema.json">`fraud_detection_bigquery_schema.json`</walkthrough-editor-open-file>. This is the schema we are going to use.
 
 Create an empty table using this schema. We will use it to stream data into it:
 ```bash
 bq --location=us mk --table \
-{{ PROJECT_ID }}:ml_datasets.ulb_fraud_detection_pubsub src/data_ingestion/fraud_detection_bigquery_schema.json
+{{ PROJECT_ID }}:ml_datasets.ulb_fraud_detection_pubsub content/data/src/data_ingestion/fraud_detection_bigquery_schema.json
 ```
 
 We also need to create a Pub/Sub schema. We use Apache Avro, as it is better suited for appending row-wise:
@@ -143,7 +148,7 @@ We also need to create a Pub/Sub schema. We use Apache Avro, as it is better sui
 gcloud pubsub schemas create fraud-detection-schema \
     --project=$PROJECT_ID  \
     --type=AVRO \
-    --definition-file=src/data_ingestion/fraud_detection_pubsub_schema.json
+    --definition-file=content/data/src/data_ingestion/fraud_detection_pubsub_schema.json
 ```
 
 And then create a Pub/Sub topic using this schema:
@@ -183,11 +188,11 @@ Examine it in the console:
 2. Click <walkthrough-spotlight-pointer locator="text('fraud-detection-subscription')">fraud-detection-subscription</walkthrough-spotlight-pointer>. Here you can see messages as they arrive.
 3. Click <walkthrough-spotlight-pointer locator="text('projects/{{ PROJECT_ID }}/topics/fraud-detection-topic')">fraud-detection-topic</walkthrough-spotlight-pointer>. This is the topic you will be publishing messages to.
 
-Please have a look at <walkthrough-editor-open-file filePath="src/data_ingestion/import_csv_to_bigquery_1.py">`import_csv_to_bigquery_1.py`</walkthrough-editor-open-file>. This script loads CSV files from Cloud Storage, parses it in Python, and sends it to Pub/Sub - row by row.
+Please have a look at <walkthrough-editor-open-file filePath="content/data/src/data_ingestion/import_csv_to_bigquery_1.py">`import_csv_to_bigquery_1.py`</walkthrough-editor-open-file>. This script loads CSV files from Cloud Storage, parses it in Python, and sends it to Pub/Sub - row by row.
 
 Let's execute it.
 ```bash
-./src/data_ingestion/import_csv_to_bigquery_1.py
+./content/data/src/data_ingestion/import_csv_to_bigquery_1.py
 ```
 
 Each line you see on the screen corresponds to one transaction being sent to Pub/Sub and written to BigQuery. It would take approximately 40 to 60 minutes for it to finish. So, please cancel the command using ``CTRL + C``.
@@ -222,7 +227,7 @@ Next, have a look at <walkthrough-editor-open-file filePath="src/data_ingestion/
 Create an empty BigQuery table:
 ```bash
 bq --location=us mk --table \
-{{ PROJECT_ID }}:ml_datasets.ulb_fraud_detection_dataproc src/data_ingestion/fraud_detection_bigquery_schema.json
+{{ PROJECT_ID }}:ml_datasets.ulb_fraud_detection_dataproc content/data/src/data_ingestion/fraud_detection_bigquery_schema.json
 ```
 
 Download the Spark connector for BigQuery and copy it to our bucket:
@@ -231,7 +236,7 @@ wget -qN https://github.com/GoogleCloudDataproc/spark-bigquery-connector/release
 gsutil cp spark-3.3-bigquery-0.37.0.jar gs://${PROJECT_ID}-bucket/jar/spark-3.3-bigquery-0.37.0.jar
 ```
 
-Open <walkthrough-editor-select-line filePath="src/data_ingestion/import_parquet_to_bigquery.py" startLine="4" endLine="4" startCharacterOffset="14" endCharacterOffset="31">import_parquet_to_bigquery.py</walkthrough-editor-select-line> in the Cloud Shell editor and replace the project id with your project id `{{ PROJECT_ID }}`. Don't forget to save.
+Open <walkthrough-editor-select-line filePath="content/data/src/data_ingestion/import_parquet_to_bigquery.py" startLine="4" endLine="4" startCharacterOffset="14" endCharacterOffset="31">import_parquet_to_bigquery.py</walkthrough-editor-select-line> in the Cloud Shell editor and replace the project id with your project id `{{ PROJECT_ID }}`. Don't forget to save.
 
 {% if ON_ARGOLIS %}
 ❗ You are on Argolis. The next command requires to disable the 
@@ -240,7 +245,7 @@ Open <walkthrough-editor-select-line filePath="src/data_ingestion/import_parquet
 
 Execute it:
 ```bash
-gcloud dataproc batches submit pyspark src/data_ingestion/import_parquet_to_bigquery.py \
+gcloud dataproc batches submit pyspark content/data/src/data_ingestion/import_parquet_to_bigquery.py \
     --project=$PROJECT_ID \
     --region=$REGION \
     --deps-bucket=gs://${PROJECT_ID}-bucket

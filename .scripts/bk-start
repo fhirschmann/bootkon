@@ -1,5 +1,13 @@
 #!/bin/sh
 
 cd $BK_DIR
+
+if [ -z "$BK_INITIALIZED" ]; then
+    echo "Bootkon has not been initialized."
+    echo "Please execute: "
+    echo "  . bk (including the dot)"
+    exit 1
+fi
+
 bk-tutorial content/${BK_STREAM}/TUTORIAL.md
 cloudshell open-workspace .
