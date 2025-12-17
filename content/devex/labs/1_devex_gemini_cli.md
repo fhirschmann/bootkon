@@ -14,100 +14,6 @@ In this lab, you will learn how to do the following:
 
 * This lab assumes familiarity with the Cloud Console and Cloud Shell environments. 
 
-## Setup and Requirements
-
-### Cloud Project setup
-
-1. Sign-in to the  [Google Cloud Console](http://console.cloud.google.com) and create a new project or reuse an existing one. If you don't already have a Gmail or Google Workspace account, you must  [create one](https://accounts.google.com/SignUp).
-
-<img src="../img/fbef9caa1602edd0.png" alt="fbef9caa1602edd0.png"  width="328.00" />
-
-<img src="../img/a99b7ace416376c4.png" alt="a99b7ace416376c4.png"  width="401.24" />
-
-<img src="../img/5e3ff691252acf41.png" alt="5e3ff691252acf41.png"  width="466.00" />
-
-* The **Project name** is the display name for this project's participants. It is a character string not used by Google APIs. You can always update it.
-* The **Project ID** is unique across all Google Cloud projects and is immutable (cannot be changed after it has been set). The Cloud Console auto-generates a unique string; usually you don't care what it is. In most codelabs, you'll need to reference your Project ID (typically identified as `PROJECT_ID`). If you don't like the generated ID, you might generate another random one. Alternatively, you can try your own, and see if it's available. It can't be changed after this step and remains for the duration of the project.
-* For your information, there is a third value, a **Project Number**, which some APIs use. Learn more about all three of these values in the  [documentation](https://cloud.google.com/resource-manager/docs/creating-managing-projects#before_you_begin).
-
-> aside negative
-> 
-> **Caution:** A project ID is globally unique and can't be used by anyone else after you've selected it. You are the only user of that ID. Even if a project is deleted, the ID can't be used again
-> aside positive
-> 
-> **Note:** If you use a Gmail account, you can leave the default location set to **No organization**. If you use a Google Workspace account, choose a location that makes sense for your organization.
-2. Next, you'll need to  [enable billing](https://console.cloud.google.com/billing) in the Cloud Console to use Cloud resources/APIs. Running through this codelab won't cost much, if anything at all. To shut down resources to avoid incurring billing beyond this tutorial, you can delete the resources you created or delete the project. New Google Cloud users are eligible for the  [$300 USD Free Trial](http://cloud.google.com/free) program.
-
-### Environment Setup
-
-Go to [Gemini](https://console.cloud.google.com/gemini?referrer=search&project={{ PROJECT_ID }})
-
-Enable Gemini for Google Cloud API:
-
-<img src="../img/636114fa6e5f0abf.png" alt="636114fa6e5f0abf.png"  width="334.50" />
-
-Enable GCA on the next screen.
-
-<img src="../img/8e234b2e282c4413.png" alt="8e234b2e282c4413.png"  width="423.50" />
-
-Click "`Start chatting`" and follow one of the sample questions or type your own prompt to try it out.
-
-<img src="../img/ed120d672468b412.png" alt="ed120d672468b412.png"  width="366.69" />
-
-
-Prompts to try:
-
-* Explain Cloud Run in 5 key points.
-* You are Google Cloud Run Product Manager, explain Cloud Run to a student in 5 short key points.
-* You are Google Cloud Run Product Manager, explain Cloud Run to a Certified Kubernetes Developer in 5 short key points.
-* You are Google Cloud Run Product Manager, explain when you would use Cloud Run versus GKE to a Senior Developer in 5 short key points.
-
-Close the Gemini Cloud Assist chat window after you are done.
-
-Check out  [Prompt Guide](https://cloud.google.com/gemini/docs/discover/write-prompts) to learn more about writing better prompts.
-
-### How Gemini for Google Cloud uses your data 
-
-#### Google's privacy commitment
-
-Google was one of the first in the industry to publish an  [AI/ML privacy commitment](https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-unveils-ai-and-ml-privacy-commitment), which outlines our belief that customers should have the **highest level of security and control over their data** that's stored in the cloud.
-
-#### Data you submit and receive
-
-The questions that you ask Gemini, including any input information or code that you submit to Gemini to analyze or complete, are called prompts. The answers or code completions that you receive from Gemini are called responses. **Gemini doesn't use your prompts or its responses as data to train its models**.
-
-#### Encryption of prompts
-
-When you submit prompts to Gemini, **your data is encrypted** in-transit as input to the underlying model in Gemini.
-
-#### Program data generated from Gemini
-
-Gemini is trained on first-party Google Cloud code as well as selected third-party code. **You're responsible for the security, testing, and effectiveness of your code**, including any code completion, generation, or analysis that Gemini offers you.
-
-[Learn more](https://cloud.google.com/gemini/docs/discover/data-governance) how Google handles your prompts.
-
-
-## Options to test prompts
-
-
-
-If you would like to change existing prompts, you have several options for that.
-
-*  [Vertex AI Studio](https://console.cloud.google.com/vertex-ai/generative/language/create/chat?createType=codechat) 
-
-Vertex AI Studio is a part of Google Cloud's Vertex AI platform, specifically designed to simplify and accelerate the development and use of generative AI models.
-
-*  [Google AI Studio](https://aistudio.google.com/) 
-
-Google AI Studio is a web-based tool for prototyping and experimenting with prompt engineering and the Gemini API. 
-
-*  [Gemini Web App](https://gemini.google.com/) (gemini.google.com)
-
-The Google Gemini web app (gemini.google.com) is a web-based tool designed to help you explore and utilize the power of Google's Gemini AI models.
-
-* Google Gemini mobile app for  [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.bard&utm_source=keyword_blog&utm_medium=owned&utm_campaign=blog_gem_24q1) and  [Google app on iOS](https://apps.apple.com/us/app/google/id284815942?ppid=cdfe7851-5436-45cf-9eb8-60dd08f22ead&pt=9008&mt=8&ct=oo-pmm-web-gem-24q1blog)
-
-
 ## Download and examine the application
 
 
@@ -117,22 +23,11 @@ Run the commands below to clone the Git repository locally using the *copy to cl
 git clone https://github.com/kbhattac/calendar-app-lab
 cd calendar-app-lab
 ```
-Then, open <walkthrough-editor-open-file filePath="calendar-app-lab/main.py">main.py
-</walkthrough-editor-open-file> you just cloned.
 
 ## Gemini CLI Introduction
 
 
-
 [Gemini CLI](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#gemini-cli) is an open-source AI agent that integrates with Google Cloud's Gemini models. It allows developers to perform various tasks directly from their terminal, such as understanding codebases, generating documentation and unit tests, and refactoring code. The key benefit of Gemini CLI is its ability to streamline development workflows by bringing the power of generative AI directly into the developer's command-line environment, reducing context switching and enhancing productivity.
-
-This step, to set the environment variable, is not required for the Qwiklabs environment. Continue with the next step.
-
-In your local environment, if you are using a paid Code Assist License from your organization, remember to set the Google Cloud Project in your terminal.  [More details](https://github.com/google-gemini/gemini-cli?tab=readme-ov-file#option-1-login-with-google-oauth-login-using-your-google-account).
-
-```bash
-export GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_NAME"
-```
 
 Check that you are in the root of the project folder:
 
@@ -148,29 +43,12 @@ gemini
 
 Your environment should look similar to the screenshot below.
 
-If you are following the steps in your local environment, you can enable integration with your IDE. 
-
-You can always change this by running `/ide disable | enable`.
+You can enable integration with your IDE and change this by running `/ide disable | enable`.
 
 <img src="../img/eaee08868abb4ccd.png" alt="eaee08868abb4ccd.png"  width="624.00" />
 
-If you are running the lab in the Qwiklabs environment, select "`Use Cloud Shell user credentials`".
 
-Otherwise authenticate Gemini CLI by running following command and select "`Login with Google`":
-
-```
-/auth
-```
-
-After restarting the CLI, you will be prompted to authorize the application by following a provided link.
-
-<img src="../img/390e8cbd9a32e8eb.png" alt="390e8cbd9a32e8eb.png"  width="624.00" />
-
-Open the link and follow the steps to sign-in with your Qwiklabs student's credentials. <img src="../img/24c1671a3c14b61d.png" alt="24c1671a3c14b61d.png"  width="624.00" />
-
-Copy verification code and return to the terminal to complete the process by pasting the code.
-
-To verify your Auth method, run following command:
+To check the Gemini CLI installation details, run following command:
 
 ```
 /about
@@ -430,29 +308,6 @@ Open the file and select preview from the context menu.
 
 <img src="../img/c669fcd96c34662.png" alt="c669fcd96c34662.png"  width="624.00" />
 
-### Custom Command To Create a Deck
-
-Send this prompt in Gemini CLI to generate a deck with key points in Marp format.
-
-Accept tools calls, like creating a folder and saving a file.
-
-```bash
-/deck:new key points and details for this app
-```
-
-Review the output.
-
-<img src="../img/c9aa767796204c7c.png" alt="c9aa767796204c7c.png"  width="624.00" />
-
-This step is not compatible with Cloud Shell, as the Marp extension requires a Web browser installation.
-
-Install Marp for VS Code extension from the Marketplace to save the deck.
-
-<img src="../img/a9d339718cbfcd9.png" alt="a9d339718cbfcd9.png"  width="624.00" />
-
-Otherwise you would open the generated file in the editor and from the command palette select "`Marp: Export Slide Deck`".
-
-<img src="../img/91143fe81f7f5d71.png" alt="91143fe81f7f5d71.png"  width="624.00" />
 
 ### Custom Command To Plan New Feature Implementation
 
@@ -472,7 +327,7 @@ Initiate the UI refactoring process by submitting this prompt through the Gemini
 
 Accept tools calls, like creating a folder and saving a file. You can enable tools auto-approve mode(`YOLO mode`) by using "`ctrl+y`".
 
-```
+```bash
 /plan:impl implement the plan to refactor the app
 ```
 
@@ -502,7 +357,7 @@ Review the output.
 If your task will require approval of tools, you could enable YOLO mode with the `-y` flag.
 
 ```bash
-gemini -p "Explain the architecture of this codebase and save the file in the markdown format in the docs folder" -y
+gemini -p "Explain the architecture of this codebase and save the file in the markdown format in the docs folder"
 ```
 
 Review the output.
@@ -516,7 +371,7 @@ By leveraging Gemini CLI in non-interactive mode, you can significantly enhance 
 
 While LLMs handle complex tasks, direct commands are more efficient for straightforward actions. The `! prefix` allows seamless switching between AI and traditional command-line interfaces.
 
-```bash
+```
 !ls
 ```
 
@@ -531,7 +386,7 @@ Gemini CLI, through the Model Context Protocol (MCP), can integrate with third-p
 
 Run this command in the terminal to create the configuration file or use shell mode.
 
-```bash
+```
 echo '{
     "mcpServers": {
         "context7": {
@@ -638,14 +493,6 @@ Congratulations, you finished the codelab!
 ### What's next:
 
 * More hands-on sessions are coming!
-
-### Clean up
-
-To avoid incurring charges to your Google Cloud account for the resources used in this tutorial, either delete the project that contains the resources, or keep the project and delete the individual resources.
-
-### Deleting the project
-
-The easiest way to eliminate billing is to delete the project that you created for the tutorial.
 
 ©2025 Google LLC All rights reserved. Google and the Google logo are trademarks of Google LLC. All other company and product names may be trademarks of the respective companies with which they are associated.
 
