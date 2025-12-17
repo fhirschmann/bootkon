@@ -83,7 +83,7 @@ The Gemini CLI can significantly simplify running your Python application locall
 To launch the application locally, enter the following prompt in the Gemini CLI terminal:
 
 ```bash
-Run this app locally
+Run this app locally in interactive mode
 ```
 
 Follow the prompts to get application started:
@@ -99,6 +99,8 @@ Sample output:
 <img src="../img/e9f986d9088b4419.png" alt="e9f986d9088b4419.png"  width="354.50" />
 
 <img src="../img/d2bb703195b4f99.png" alt="d2bb703195b4f99.png"  width="359.18" />
+
+Close the Web Preview tab. Press `Ctrl+C` in the Gemini CLI window to quit the application and proceed with the lab.
 
 
 ## Adding documentation
@@ -182,17 +184,16 @@ Review and accept the changes:
 
 <img src="../img/16e6ca14e703127.png" alt="16e6ca14e703127.png"  width="624.00" />
 
-To begin, launch the application. If it's already running, simply reload the page.
-
 ```bash
-python3 main.py
+Run this app locally in interactive mode
 ```
 
-Reload the page  and check the changes.
 
 <img src="../img/b52a709e902040e3.png" alt="b52a709e902040e3.png"  width="624.00" />
 
 <img src="../img/54664e527bcd9227.png" alt="54664e527bcd9227.png"  width="624.00" />
+
+Close the Web Preview tab. Press `Ctrl+C` in the Gemini CLI window to quit the application and proceed with the lab.
 
 Implement error handling to ensure an error page is displayed when issues arise.
 
@@ -200,12 +201,15 @@ Implement error handling to ensure an error page is displayed when issues arise.
 Implement error handling to display an error page when issues occur.
 ```
 
-Please refresh the page to view the updates.
+```bash
+Run this app locally in interactive mode
+```
 
 Send a negative number to confirm the error page.
 
 <img src="../img/82e16d4cf25933db.png" alt="82e16d4cf25933db.png"  width="337.50" />
 
+Close the Web Preview tab. Press `Ctrl+C` in the Gemini CLI window to quit the application and proceed with the lab.
 
 ## Refactor Backend
 
@@ -223,6 +227,12 @@ Review and accept the changes in the chat:
 
 <img src="../img/19cfa20552fb3a01.png" alt="19cfa20552fb3a01.png"  width="624.00" />
 
+Check out the changes (use the Web Preview):
+
+```bash
+Run this app locally in interactive mode
+```
+
 Submit several requests to the application, then review history page.
 
 <img src="../img/ac5639d18b341b0a.png" alt="ac5639d18b341b0a.png"  width="624.00" />
@@ -230,6 +240,8 @@ Submit several requests to the application, then review history page.
 Review the history of conversion requests.
 
 <img src="../img/9ca680e193510640.png" alt="9ca680e193510640.png"  width="624.00" />
+
+Close the Web Preview tab. Press `Ctrl+C` in the Gemini CLI window to quit the application and proceed with the lab.
 
 To update the README.md file with the current codebase state, send this prompt via Gemini CLI:
 
@@ -346,7 +358,12 @@ Start/reload the application and review the output:
 
 When running Gemini CLI in a non-interactive mode within a CI/CD pipeline, you can automate various tasks by passing prompts and commands directly to the CLI without requiring manual intervention. This allows for seamless integration into automated workflows for code analysis, documentation generation, and other development tasks.
 
-Open a new terminal or close the existing Gemini CLI session and run this command.
+Quit the Gemini CLI using the `/quit` command:
+
+```bash
+/quit
+```
+In the system terminal type:
 
 ```bash
 gemini -p "Explain the architecture of this codebase"
@@ -354,13 +371,11 @@ gemini -p "Explain the architecture of this codebase"
 
 Review the output.
 
-If your task will require approval of tools, you could enable YOLO mode with the `-y` flag.
+Get back into Gemini CLI for proceeding with the lab:
 
 ```bash
-gemini -p "Explain the architecture of this codebase and save the file in the markdown format in the docs folder"
+gemini
 ```
-
-Review the output.
 
 By leveraging Gemini CLI in non-interactive mode, you can significantly enhance the automation capabilities of your CI/CD pipelines, leading to more efficient development cycles and improved code quality.
 
@@ -372,7 +387,7 @@ By leveraging Gemini CLI in non-interactive mode, you can significantly enhance 
 While LLMs handle complex tasks, direct commands are more efficient for straightforward actions. The `! prefix` allows seamless switching between AI and traditional command-line interfaces.
 
 ```
-!ls
+! ls
 ```
 
 Review the output. Hit `Escape` to exit shell mode.
@@ -382,10 +397,10 @@ Review the output. Hit `Escape` to exit shell mode.
 
 
 
-Gemini CLI, through the Model Context Protocol (MCP), can integrate with third-party systems like Jira, Confluence or GitHub. This is achieved via MCP server custom tool integrations, allowing Gemini CLI to create or update JIRA tickets, fetch information from Confluence pages, create pull requests, etc. 
+Gemini CLI, through the Model Context Protocol (MCP), can integrate with third-party systems like Jira, Confluence or GitHub. This is achieved via MCP server custom tool integrations, allowing Gemini CLI to create or update JIRA tickets, fetch information from Confluence pages, create pull requests, etc.
+This requires the file `settings.json` to be present in the `.gemini` subdirectory in the current folder hierarchy.
 
-Run this command in the terminal to create the configuration file or use shell mode.
-
+Quit Gemini CLI using the `/quit` command and run the following command in the terminal to create the configuration file:
 ```
 echo '{
     "mcpServers": {
@@ -422,55 +437,6 @@ Approve the tools and review the output.
 
 <img src="../img/b51db5af09bd3f02.png" alt="b51db5af09bd3f02.png"  width="624.00" />
 
-
-## Example MCP servers configuration for your local environment
-
-
-
-You can configure multiple MCP servers in your local environment using the following config.
-
-```bash
-{
-    "mcpServers": {
-        "Snyk Security Scanner": {
-            "command": "snyk",
-            "args": [
-                "mcp",
-                "-t",
-                "stdio",
-                "--experimental"
-            ],
-            "env": {}
-        },
-        "atlassian": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "mcp-remote",
-                "https://mcp.atlassian.com/v1/sse"
-            ]
-        },
-        "playwright": {
-            "command": "npx",
-            "args": [
-                "@playwright/mcp@latest"
-            ]
-        },
-        "github": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "@modelcontextprotocol/server-github"
-            ],
-            "env": {
-                "GITHUB_PERSONAL_ACCESS_TOKEN": "******"
-            }
-        }
-    }
-}
-```
-
-The MCP servers in this configuration transform your Gemini CLI agent into a dynamic development and collaboration tool by providing standardized access to external systems. Specifically, the Snyk Security Scanner server allows the agent to check code and dependencies for vulnerabilities without leaving your current workspace, while the Atlassian server connects to Jira and Confluence, enabling the Gemini CLI to create, search, and update issues or documentation using natural language. Furthermore, the Playwright server grants the agent browser automation capabilities, allowing it to navigate and interact with the web for tasks like testing or data extraction. Finally, the Github server gives the agent direct, contextual access to your repositories, allowing it to manage PRs, triage issues, and analyze the codebase, significantly reducing context switching and boosting productivity across your entire development workflow.
 
 
 ## Gemini CLI Conclusion
