@@ -82,10 +82,10 @@ Review the output:
 
 The Gemini CLI can significantly simplify running your Python application locally by helping you auto-generate essential configuration files like requirements.txt or a basic Dockerfile. Moreover, it's excellent for managing Python dependencies and troubleshooting, as it can quickly explain traceback errors resulting from missing packages or version conflicts, and often suggest the precise pip install command to fix the issue.
 
-To launch the application locally, enter the following prompt in the Gemini CLI terminal:
+To launch the application locally, enter the following prompt in the Gemini CLI terminal. Notice the negative prompt which prevents the CLI to launch the process in the background. The Web Preview requires the process be running in the foreground:
 
 ```bash
-Run this app locally in interactive mode
+Run this app locally in interactive mode on port 8080. Do not run it in the background.
 ```
 
 Follow the prompts to get application started:
@@ -125,7 +125,7 @@ Update the `.gitignore` file with the following prompt:
 update .gitignore and add __pycache__ folder
 ```
 
-Switch to Source Control view and review changes that you made so far:
+Click on the `Open Editor` button and open the `~/bootkon/calendar-app-lab` directory in VSCode. Review changes that you made so far:
 
 <img src="../img/2c41f8b842573384.png" alt="2c41f8b842573384.png"  width="624.00" />
 
@@ -177,7 +177,7 @@ The Gemini CLI can significantly aid in UI refactoring by helping you translate 
 Refactor the UI using the Bootstrap library by submitting the following prompt to the Gemini CLI:
 
 ```bash
-Refactor UI to use Bootstrap library
+Refactor UI to use Bootstrap library. Do not run the app yet.
 ```
 
 Review and accept the changes:
@@ -185,7 +185,7 @@ Review and accept the changes:
 <img src="../img/16e6ca14e703127.png" alt="16e6ca14e703127.png"  width="624.00" />
 
 ```bash
-Run this app locally in interactive mode
+Run this app locally in interactive mode on port 8080. Do not run it in the background.
 ```
 
 
@@ -195,15 +195,15 @@ Run this app locally in interactive mode
 
 Close the Web Preview tab. Press `Ctrl+C` in the Gemini CLI window to quit the application and proceed with the lab.
 
-Implement error handling to ensure an error page is displayed when issues arise.
+Implement error handling to ensure an error page is displayed when issues arise. If the CLI asks to run the app, choose `No`, as we need to run it interactively.
 
 ```bash
-Implement error handling to display an error page when issues occur.
+Implement error handling to display an error page when issues occur. Do not run the app yet.
 ```
 Wait for Gemini CLI to finish. Test the application for the changes:
 
 ```bash
-Run this app locally in interactive mode
+Run this app locally in interactive mode on port 8080. Do not run it in the background.
 ```
 
 Send a negative number to confirm the error page.
@@ -218,7 +218,7 @@ Close the Web Preview tab. Press `Ctrl+C` in the Gemini CLI window to quit the a
 
 The Gemini CLI is effective for backend refactoring by assisting in the migration of legacy framework code to modern alternatives or helping restructure monolithic services into more manageable microservice components. It can analyze server-side logic to suggest improved database query patterns or more efficient API endpoint designs, ensuring performance and scalability are maintained or enhanced.
 
-Modify the backend to save conversion requests in memory.
+Modify the backend to save conversion requests in memory. If the CLI asks to run the app, choose `No`, as we need to run it interactively.
 
 ```bash
 Store requests in memory and create a page to display conversion history. Add links on all pages to view the history.
@@ -231,7 +231,7 @@ Review and accept the changes in the chat:
 Check out the changes (use the Web Preview):
 
 ```bash
-Run this app locally in interactive mode
+Run this app locally in interactive mode on port 8080. Do not run it in the background.
 ```
 
 Submit several requests to the application, then review history page.
@@ -403,6 +403,7 @@ This requires the file `settings.json` to be present in the `.gemini` subdirecto
 
 We'll be adding two MCP servers for this lab. One for documentation with [Context7](https://context7.com/) and another for deploying apps to `Cloud Run`.
 Quit Gemini CLI using the `/quit` command and run the following command in the terminal to create the configuration file:
+
 ```
 echo '{
     "mcpServers": {
@@ -431,7 +432,7 @@ Verify configured MCP servers:
 
 Review the output
 
-<img src="../img/c80d95544cc3436a.png" alt="c80d95544cc3436a.png"  width="624.00" />
+<img src="../img/mcp.png" alt="mcp.png"  width="624.00" />
 
 Send the prompt to test the `context7` configured MCP server:
 
@@ -452,11 +453,17 @@ Ensure that you are in the root of the project folder `~/bootkon/calendar-app-la
 Send the prompt to deploy the Python app from source to Cloud Run using the MCP server configured in the previous step:
 
 ```bash
-deploy the application from source to cloud run in project `{{ PROJECT_ID }}` in region europe-west3
+deploy the application from source to cloud run in project {{ PROJECT_ID }} in region europe-west3
 ```
-Allow the Gemini CLI to process the command. There might be permission errors, which the Gemini CLI will automatically detect and correct, by adding the necessary permissions using the `gcloud` CLI to make the deployment successful. It will ask before executing any `gcloud` command, so please allow the execution in order to proceed.
 
-In order to see what's happening with the CI setup while Gemini CLI is processing the above prompt, open a new browser tab in the same browser instance to visit [console.cloud.google.com](https://console.cloud.google.com/). In the search bar type `Cloud Build` and select the product as shown below:
+The output should look something like this:
+
+<img src="../img/deploy.png" alt="deploy.png"  width="550" />
+
+Answer possible questions like service name, and allow the Gemini CLI to process the command. There might be permission errors, which the Gemini CLI will automatically detect and correct, by adding the necessary permissions using the `gcloud` CLI to make the deployment successful. It will ask before executing any `gcloud` command, so please allow the execution in order to proceed.
+
+
+In order to see what's happening with the CI setup while Gemini CLI is processing the above prompt, open a new browser tab in the same browser instance to visit [console.cloud.google.com](https://console.cloud.google.com). In the search bar type `Cloud Build` and select the product as shown below:
 
 <img src="../img/search_cb.png" alt="search_cb.png"  width="550" />
 
@@ -465,6 +472,10 @@ Here you can see the full CI pipeline being setup and triggered by the MCP deplo
 
 
 <img src="../img/cb.png" alt="cb.png"  width="550" />
+
+Once Gemini CLI successfully deploys the app to `Cloud Run` you can click on the provided link to check the app running in `Cloud Run`.
+
+<img src="../img/run.png" alt="run.png"  width="550" />
 
 ## Gemini CLI Conclusion
 
