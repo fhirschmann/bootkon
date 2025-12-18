@@ -1,15 +1,15 @@
-# Data & AI Bootkon: innovate and build with Google Cloud
+# Devex Bootkon: innovate and build with Google Cloud
 
 ![](https://img.shields.io/github/actions/workflow/status/fhirschmann/bootkon/mdbook.yml?label=handbook%20build) ![](https://img.shields.io/github/last-commit/fhirschmann/bootkon) 
 
 
-Data & AI Bootkon is an immersive hackathon designed for tech enthusiasts, developers, and innovators to explore the power of Google Cloud products through hands-on learning. This event provides a unique, integrated experience using Google Cloud Shell tutorials, enabling participants to dive deep into cutting-edge cloud technologies.
+Developer Experience (or DevEx) Bootkon is an immersive AI augmented hackathon designed for tech enthusiasts, developers, and innovators to explore the power of Google Cloud products through hands-on learning. This event provides a unique, integrated experience using Google Cloud Shell tutorials, enabling participants to dive deep into cutting-edge cloud technologies.
 
-Bootkon consits of the following streams:
+Devex Bootkon consits of the following streams:
 
 | Stream        | Description |
 | ------------- | ------- |
-| [Data & AI](content/data/README.md) | Your role: As a senior data analytics/AI engineer at an imaginary company called FraudFix Technologies, you will tackle the challenges of making financial transactions safer using machine learning. Your work will involve analyzing vast amounts of transaction data to detect and prevent fraud, as well as assessing customer sentiment regarding the quality of transaction services. You will leverage a unique dataset, which includes auto-generated data by Google Gemini and  public European credit card transactions that have been PCA transformed and anonymized. This dataset will be used to train your models, reflecting real-world applications of GCP Data & AI in enhancing financial safety. |
+| [DevEx AI](content/devex/README.md) | Your role: As a senior AI powered developer/engineer, the goal is on utilizing Gemini CLI for accelerating the execution of various tasks, including understanding existing codebases, generating documentation and unit tests, refactoring both UI and backend components of a Python web application and deploying the application to Cloud Native Runtimes like Cloud Run.|
 
 ## Note
 
@@ -22,15 +22,5 @@ intended for use in a production environment.
 
 ## Authors
 
-This version is based on a [previous version](https://github.com/dace-de/google-data-ai-bootkon-docs) by Wissem Khlifi. 
-
-The authors of Data & AI Bootkon are:
-- [Fabian Hirschmann](https://www.linkedin.com/in/fhirschmann/) (maintainer; main author)
-- [Cary Edwards](https://www.linkedin.com/in/cary-edwards-a3a557a6/) (contributor)
-- [Wissem Khlifi](https://www.linkedin.com/in/orawiss/) (original author)
-
-Data & AI Bootkon received contributions from many people, including:
-- [Christine Schulze](https://www.linkedin.com/in/christine-schulze-33822765/)
-- [Daniel Quinlan](https://www.linkedin.com/in/%F0%9F%8C%8Ddaniel-quinlan-51126016/)
-- [Daniel Holgate](https://www.linkedin.com/in/danielholgate/)
-- [Dinesh Sandra](https://www.linkedin.com/in/sandradinesh/)
+The author of DevEx Bootkon is:
+- [Kaushik Bhattacharya](https://www.linkedin.com/in/kaushikbhattacharya/) (maintainer; main author)
