@@ -45,8 +45,6 @@ gemini
 
 Your environment should look similar to the screenshot below.
 
-You can enable integration with your IDE and change this by running `/ide disable | enable`.
-
 <img src="../img/eaee08868abb4ccd.png" alt="eaee08868abb4ccd.png"  width="624.00" />
 
 
@@ -304,7 +302,7 @@ Send this prompt in Gemini CLI to generate a request flow diagram in Mermaid for
 Accept tools calls, like creating a folder and saving a file.
 
 ```bash
-/diagram:new request flow for this app
+/diagram:new request flow for this app.
 ```
 
 Review the output.
@@ -321,6 +319,7 @@ Open the file and select preview from the context menu.
 
 <img src="../img/c669fcd96c34662.png" alt="c669fcd96c34662.png"  width="624.00" />
 
+`Tip:` If the preview throws syntax errors, copy and paste it into Gemini CLI for generating a fix.
 
 ### Custom Command To Plan New Feature Implementation
 
@@ -341,12 +340,16 @@ Initiate the UI refactoring process by submitting this prompt through the Gemini
 Accept tools calls, like creating a folder and saving a file. You can enable tools auto-approve mode(`YOLO mode`) by using "`ctrl+y`".
 
 ```bash
-/plan:impl implement the plan to refactor the app
+/plan:impl implement the plan to refactor the app. Do not run it yet.
 ```
 
 <img src="../img/a3ceec7146f285e0.png" alt="a3ceec7146f285e0.png"  width="624.00" />
 
 Start/reload the application and review the output: (tip use the prompt to run the app locally in interactive mode in Gemini CLI and use Web Preview)
+
+```bash
+Run this app locally in interactive mode on port 8080. Do not run it in the background.
+```
 
 <img src="../img/fd0675f713d361e4.png" alt="fd0675f713d361e4.png"  width="373.50" />
 
@@ -463,7 +466,7 @@ The output should look something like this:
 Answer possible questions like service name, and allow the Gemini CLI to process the command. There might be permission errors, which the Gemini CLI will automatically detect and correct, by adding the necessary permissions using the `gcloud` CLI to make the deployment successful. It will ask before executing any `gcloud` command, so please allow the execution in order to proceed.
 
 
-In order to see what's happening with the CI setup while Gemini CLI is processing the above prompt, open a new browser tab in the same browser instance to visit [console.cloud.google.com](https://console.cloud.google.com). In the search bar type `Cloud Build` and select the product as shown below:
+In order to see what's happening with the CI setup while Gemini CLI is processing the above prompt, open a new browser tab in the same browser instance to visit [Google Cloud Console](https://console.cloud.google.com). In the search bar type `Cloud Build` and select the product as shown below:
 
 <img src="../img/search_cb.png" alt="search_cb.png"  width="550" />
 
@@ -487,12 +490,11 @@ In conclusion, Gemini CLI stands out as a powerful and versatile open-source AI 
 ## Congratulations!
 
 
-
 Congratulations, you finished the codelab!
 
 ### What we've covered:
 
-* Using Gemini CLI for common developer tasks
+* How to use Gemini CLI to enhance the Developer Experience leveraging state-of-the-art AI.
 
 ### What's next:
 
