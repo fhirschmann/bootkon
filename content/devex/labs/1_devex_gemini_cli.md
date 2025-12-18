@@ -2,17 +2,19 @@
 
 ## Overview
 
-This lab focuses on utilizing Gemini CLI, an open-source AI-powered agent in Google Cloud. You will learn to use Gemini CLI for various tasks, including understanding existing codebases, generating documentation and unit tests, refactoring both UI and backend components of a Python web application.
+This lab focuses on utilizing Gemini CLI, an open-source AI-powered agent in Google Cloud. You will learn to use Gemini CLI for various tasks, including understanding existing codebases, generating documentation and unit tests, refactoring both UI and backend components of a Python web application, and deploying the application to Cloud Run.
 
 ### What you will learn
 
 In this lab, you will learn how to do the following:
 
-* How to use Gemini CLI for common developer tasks.
+* How to use Gemini CLI to boost productivity for common Developer/Platform Engineering tasks.
 
 ### Prerequisites
 
-* This lab assumes familiarity with the Cloud Console and Cloud Shell environments. 
+* This lab assumes familiarity with the Cloud Console and Cloud Shell environments. We'll be using the Web Preview feature of Cloud Shell to easily test the application locally in the browser on a new tab. The Web Preview button appears on the top right end of the Cloud Shell:
+
+<img src="../img/web_preview.png" alt="web_preview.png"  width="450" />
 
 ## Download and examine the application
 
@@ -29,10 +31,10 @@ cd calendar-app-lab
 
 [Gemini CLI](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#gemini-cli) is an open-source AI agent that integrates with Google Cloud's Gemini models. It allows developers to perform various tasks directly from their terminal, such as understanding codebases, generating documentation and unit tests, and refactoring code. The key benefit of Gemini CLI is its ability to streamline development workflows by bringing the power of generative AI directly into the developer's command-line environment, reducing context switching and enhancing productivity.
 
-Check that you are in the root of the project folder:
+Check that you are in the root of the project folder `~/bootkon/calendar-app-lab`:
 
 ```bash
-cd ~/bootkon/calendar-app-lab
+pwd
 ```
 
 Start Gemini CLI in the terminal window:
@@ -90,17 +92,15 @@ Follow the prompts to get application started:
 
 <img src="../img/d1fefa449b733c15.png" alt="d1fefa449b733c15.png"  width="624.00" />
 
-Click on the link to preview application:
-
 <img src="../img/695fc8a1abab0aa7.png" alt="695fc8a1abab0aa7.png"  width="624.00" />
 
-Sample output:
+Click on the Web Preview button to check the app:
 
 <img src="../img/e9f986d9088b4419.png" alt="e9f986d9088b4419.png"  width="354.50" />
 
 <img src="../img/d2bb703195b4f99.png" alt="d2bb703195b4f99.png"  width="359.18" />
 
-Close the Web Preview tab. Press `Ctrl+C` in the Gemini CLI window to quit the application and proceed with the lab.
+Close the Web Preview tab. Press `Ctrl+C` in the Gemini CLI window to quit the application running interactively and proceed with the lab.
 
 
 ## Adding documentation
@@ -200,6 +200,7 @@ Implement error handling to ensure an error page is displayed when issues arise.
 ```bash
 Implement error handling to display an error page when issues occur.
 ```
+Wait for Gemini CLI to finish. Test the application for the changes:
 
 ```bash
 Run this app locally in interactive mode
@@ -345,7 +346,7 @@ Accept tools calls, like creating a folder and saving a file. You can enable too
 
 <img src="../img/a3ceec7146f285e0.png" alt="a3ceec7146f285e0.png"  width="624.00" />
 
-Start/reload the application and review the output:
+Start/reload the application and review the output: (tip use the prompt to run the app locally in interactive mode in Gemini CLI and use Web Preview)
 
 <img src="../img/fd0675f713d361e4.png" alt="fd0675f713d361e4.png"  width="373.50" />
 
@@ -390,28 +391,33 @@ While LLMs handle complex tasks, direct commands are more efficient for straight
 ! ls
 ```
 
-Review the output. Hit `Escape` to exit shell mode.
+If the copy command doesn't work, just click on the Gemini CLI and type `!`. The prompt changes to the shell mode. Review the output. Hit `Escape` to exit shell mode.
 
 
 ## Gemini CLI MCP support
 
 
 
-Gemini CLI, through the Model Context Protocol (MCP), can integrate with third-party systems like Jira, Confluence or GitHub. This is achieved via MCP server custom tool integrations, allowing Gemini CLI to create or update JIRA tickets, fetch information from Confluence pages, create pull requests, etc.
+Gemini CLI, through the Model Context Protocol (MCP), can integrate with GCP native services like Cloud Run or third-party systems like Jira, Confluence or GitHub. This is achieved via MCP server custom tool integrations, allowing Gemini CLI to e.g. deploy an app to Cloud Run, create or update JIRA tickets, fetch information from Confluence pages, create pull requests, etc.
 This requires the file `settings.json` to be present in the `.gemini` subdirectory in the current folder hierarchy.
 
+We'll be adding two MCP servers for this lab. One for documentation with `Context7` and another for deploying apps to `Cloud Run`.
 Quit Gemini CLI using the `/quit` command and run the following command in the terminal to create the configuration file:
 ```
 echo '{
     "mcpServers": {
         "context7": {
             "httpUrl": "https://mcp.context7.com/mcp"
-        }
+        },
+        "cloud-run": {
+            "command": "npx",
+            "args": ["-y", "@google-cloud/cloud-run-mcp"]
+          }
     }
 }' > .gemini/settings.json
 ```
 
-Start Gemini CLI session:
+Start the Gemini CLI session:
 
 ```bash
 gemini
@@ -427,7 +433,7 @@ Review the output
 
 <img src="../img/c80d95544cc3436a.png" alt="c80d95544cc3436a.png"  width="624.00" />
 
-Send the prompt to test configured MCP server:
+Send the prompt to test the `context7` configured MCP server:
 
 ```bash
 use context7 tools to look up how to implement flex grid in react mui library 
