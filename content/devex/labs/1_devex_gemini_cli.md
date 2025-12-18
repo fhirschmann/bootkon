@@ -398,10 +398,10 @@ If the copy command doesn't work, just click on the Gemini CLI and type `!`. The
 
 
 
-Gemini CLI, through the Model Context Protocol (MCP), can integrate with GCP native services like Cloud Run or third-party systems like Jira, Confluence or GitHub. This is achieved via MCP server custom tool integrations, allowing Gemini CLI to e.g. deploy an app to Cloud Run, create or update JIRA tickets, fetch information from Confluence pages, create pull requests, etc.
+Gemini CLI, through the Model Context Protocol (MCP), can integrate with GCP native services like [Cloud Run](https://cloud.google.com/run) or third-party systems like Jira, Confluence or GitHub. This is achieved via MCP server custom tool integrations, allowing Gemini CLI to e.g. deploy an app to Cloud Run, create or update JIRA tickets, fetch information from Confluence pages, create pull requests, etc.
 This requires the file `settings.json` to be present in the `.gemini` subdirectory in the current folder hierarchy.
 
-We'll be adding two MCP servers for this lab. One for documentation with `Context7` and another for deploying apps to `Cloud Run`.
+We'll be adding two MCP servers for this lab. One for documentation with [Context7](https://context7.com/) and another for deploying apps to `Cloud Run`.
 Quit Gemini CLI using the `/quit` command and run the following command in the terminal to create the configuration file:
 ```
 echo '{
@@ -443,7 +443,28 @@ Approve the tools and review the output.
 
 <img src="../img/b51db5af09bd3f02.png" alt="b51db5af09bd3f02.png"  width="624.00" />
 
+## Deploying the Python App to Cloud Run using MCP
 
+We'll be creating an entire CI pipeline using [Cloud Build](https://cloud.google.com/build#key-features) to deploy the Python app created earlier, to [Cloud Run](https://cloud.google.com/run). The MCP [implementation](https://github.com/GoogleCloudPlatform/cloud-run-mcp?tab=readme-ov-file) of Cloud Run allows deploying apps from the source code using [GCP Buildpacks](https://github.com/GoogleCloudPlatform/buildpacks) which are based on [CNCF buildpacks](https://www.cncf.io/projects/buildpacks/), so that you don't have to create the container image yourself.
+
+Ensure that you are in the root of the project folder `~/bootkon/calendar-app-lab`. In Gemini CLI, type `! pwd` to check this and hit `Escape` to return to the interactive mode.
+
+Send the prompt to deploy the Python app from source to Cloud Run using the MCP server configured in the previous step:
+
+```bash
+deploy the application from source to cloud run in project `{{ PROJECT_ID }}` in region europe-west3
+```
+Allow the Gemini CLI to process the command. There might be permission errors, which the Gemini CLI will automatically detect and correct, by adding the necessary permissions using the `gcloud` CLI to make the deployment successful. It will ask before executing any `gcloud` command, so please allow the execution in order to proceed.
+
+In order to see what's happening with the CI setup while Gemini CLI is processing the above prompt, open a new browser tab in the same browser instance to visit [console.cloud.google.com](https://console.cloud.google.com/). In the search bar type `Cloud Build` and select the product as shown below:
+
+<img src="../img/search_cb.png" alt="search_cb.png"  width="550" />
+
+
+Here you can see the full CI pipeline being setup and triggered by the MCP deployment:
+
+
+<img src="../img/cb.png" alt="cb.png"  width="550" />
 
 ## Gemini CLI Conclusion
 
