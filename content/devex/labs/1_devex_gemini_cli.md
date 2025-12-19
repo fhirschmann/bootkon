@@ -139,7 +139,7 @@ The Gemini CLI is excellent for writing unit tests by enabling developers to gen
 Using the prompt below, to generate unit tests:
 
 ```bash
-Generate unit tests for @calendar.py
+Generate unit tests for @calendar.py and run the tests.
 ```
 
 Accept the changes after reviewing them.
