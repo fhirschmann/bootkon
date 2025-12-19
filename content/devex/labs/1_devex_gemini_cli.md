@@ -26,16 +26,17 @@ git clone https://github.com/kbhattac/calendar-app-lab
 cd calendar-app-lab
 ```
 
-## Gemini CLI Introduction
-
-
-[Gemini CLI](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#gemini-cli) is an open-source AI agent that integrates with Google Cloud's Gemini models. It allows developers to perform various tasks directly from their terminal, such as understanding codebases, generating documentation and unit tests, and refactoring code. The key benefit of Gemini CLI is its ability to streamline development workflows by bringing the power of generative AI directly into the developer's command-line environment, reducing context switching and enhancing productivity.
-
-Check that you are in the root of the project folder `~/bootkon/calendar-app-lab`:
+Walkthrough the application code in the built in VSCode instance:
 
 ```bash
-pwd
+cloudshell workspace ~/bootkon/calendar-app-lab
 ```
+
+Click on the `Open Terminal` button once done, to close the editor and proceed with the lab.
+
+## Gemini CLI Introduction
+
+[Gemini CLI](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#gemini-cli) is an open-source AI agent that integrates with Google Cloud's Gemini models. It allows developers to perform various tasks directly from their terminal, such as understanding codebases, generating documentation and unit tests, and refactoring code. The key benefit of Gemini CLI is its ability to streamline development workflows by bringing the power of generative AI directly into the developer's command-line environment, reducing context switching and enhancing productivity.
 
 Start Gemini CLI in the terminal window:
 
@@ -123,7 +124,7 @@ Update the `.gitignore` file with the following prompt:
 update .gitignore and add __pycache__ folder
 ```
 
-Click on the `Open Editor` button and open the `~/bootkon/calendar-app-lab` directory in VSCode. Review changes that you made so far:
+Click on the `Open Editor` button and navigate to the Source Control view in VSCode. Review changes that you made so far:
 
 <img src="../img/2c41f8b842573384.png" alt="2c41f8b842573384.png"  width="624.00" />
 
