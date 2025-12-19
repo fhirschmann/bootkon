@@ -184,7 +184,7 @@ echo -e "(__/\__ \--/ __             |          \e[34mW\e[31me\e[33ml\e[32mc\e[3
 echo -e "   \___|----|  |   __       |                                     |"
 echo -e "       \ }{ /\ )_ / _\      ---------------------------------------"
 echo -e "       /\__/\ \__O (__"
-echo -e "      (--/\--)    \__/      To start Data & AI Bootkon, type ${GREEN}\e[1mbk-start\e[0m${NC}."
+echo -e "      (--/\--)    \__/      To start ${BK_STREAM} Bootkon, type ${GREEN}\e[1mbk-start\e[0m${NC}."
 echo -e "      _)(  )(_              This will open the tutorial and IDE workspace."
 echo -e '      `---''---`'
 echo
