@@ -50,7 +50,7 @@ Your environment should look similar to the screenshot below.
 
 To check the Gemini CLI installation details, run following command:
 
-```
+```bash
 /about
 ```
 
