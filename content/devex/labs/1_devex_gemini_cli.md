@@ -128,6 +128,7 @@ Click on the `Open Editor` button and navigate to the Source Control view in VSC
 
 <img src="../img/2c41f8b842573384.png" alt="2c41f8b842573384.png"  width="624.00" />
 
+Click on the `Open Terminal` button once done, to close the editor and proceed with the lab.
 
 ## Adding Unit Tests
 
